@@ -263,7 +263,7 @@ client.on('messageCreate', async (message) => {
         },
         {
           name: '`!onlinemembers <organization name>`',
-          value: 'Shows online players who are members of a specific organization. for Example: `!online Rapid.Assault.Vanguard`',
+          value: 'Shows online players who are members of a specific organization. for Example: `!onlinemembers Rapid.Assault.Vanguard`',
         }
       )
       .setFooter({ text: 'Made by Strong ✨' })
