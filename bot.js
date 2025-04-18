@@ -27,7 +27,7 @@ client.on('messageCreate', async (message) => {
   if (!allowedChannels.includes(message.channel.id)) return;
 
   // Only respond if the message starts with "!" to prevent non-command messages
-  if (command === '!onlineplayers') {
+  if (command === '!op') {
     try {
       const response = await axios.get('https://saesrpg.uk/server/live/');
       const html = response.data;
@@ -160,7 +160,7 @@ client.on('messageCreate', async (message) => {
   
 
   // Command to lookup specific organization members
-  if (command === '!onlinemembers' && args[1]) {
+  if (command === '!om' && args[1]) {
     const orgName = args.slice(1).join(' ').toLowerCase();  // Get the organization name argument
 
     try {
@@ -258,12 +258,12 @@ client.on('messageCreate', async (message) => {
       .setDescription('Here are the available commands:')
       .addFields(
         {
-          name: '`!onlineplayers`',
+          name: '`!op`',
           value: 'Displays all currently online players',
         },
         {
-          name: '`!onlinemembers <organization name>`',
-          value: 'Shows online players who are members of a specific organization. for Example: `!onlinemembers Rapid.Assault.Vanguard`',
+          name: '`!om <organization name>`',
+          value: 'Shows online players who are members of a specific organization. for Example: `!om Rapid.Assault.Vanguard`',
         }
       )
       .setFooter({ text: 'Made by Strong ✨' })
