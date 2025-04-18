@@ -252,6 +252,7 @@ client.on('messageCreate', async (message) => {
     }
   }
   if (command === '!help') {
+    console.log(`Responding to !help from bot instance at ${new Date().toLocaleTimeString()}`);
     const helpEmbed = new EmbedBuilder()
       .setColor('#A2C6CA')
       .setTitle('Bot Commands Help')
@@ -263,7 +264,7 @@ client.on('messageCreate', async (message) => {
         },
         {
           name: '`!om <organization name>`',
-          value: 'Shows online players who are members of a specific organization. for Example: `!om Rapid.Assault.Vanguard`',
+          value: 'Displays online players who are members of a specific organization. for Example: `!om Rapid.Assault.Vang...` (Be careful with misspellings)',
         }
       )
       .setFooter({ text: 'Made by Strong ✨' })
