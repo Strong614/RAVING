@@ -17,16 +17,24 @@ module.exports = {
   async execute(interaction) {
     await interaction.deferReply();
     const args = interaction.options?.getString("filters")?.split(" ") || [];
-
+    
     const filters = {};
     for (const arg of args) {
       const [key, value] = arg.split(":");
       if (key && value) filters[key] = value;
     }
 
-    const allPosts = await scrapeRAVMediaArchive();
-    const filtered = applyFilters(allPosts, filters);
+    console.log("Filters applied:", filters); // Log the filters to verify they're being set correctly
 
+    const allPosts = await scrapeRAVMediaArchive(filters);
+    console.log("Fetched posts:", allPosts); // Log the fetched posts to see what you get
+
+    if (allPosts.length === 0) {
+      await interaction.editReply("No posts found based on the filters.");
+      return;
+    }
+
+    const filtered = applyFilters(allPosts, filters);
     const itemsPerPage = 5;
     let page = 0;
 

@@ -42,13 +42,13 @@ async function scrapeRAVMediaArchive(filters = {}) {
       posts.push(post);
     });
 
+    console.log(`Scraped ${posts.length} posts from page ${page}`); // Log posts after each page scrape
+
     hasNext = $('.ipsPagination').length > 0 && $('.ipsPagination .ipsPagination_next').length > 0;
     page++;
   }
- console.log('Scraping page:', url); // Log the URL being scraped
- console.log('Filter applied:', filters); // Log the filter
 
-
+  console.log(`Total posts scraped: ${posts.length}`); // Final log for total posts scraped
   return posts;
 }
 
