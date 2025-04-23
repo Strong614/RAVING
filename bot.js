@@ -288,5 +288,20 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Keep-alive server running on port ${PORT}`);
+
+
+
+
+
+
+  
+  const ravCommand = require("./commands/rav");
+client.on("interactionCreate", async (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "rav") {
+    await ravCommand.execute(interaction);
+  }
+});
 });
 
