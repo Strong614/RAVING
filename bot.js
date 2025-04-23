@@ -275,6 +275,16 @@ client.on('messageCreate', async (message) => {
   
 });
 
+// Media Archieve scraping
+const ravCommand = require("./commands/rav");
+client.on("interactionCreate", async (interaction) => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === "rav") {
+    await ravCommand.execute(interaction);
+  }
+});
+
 // Login to Discord with your bot token from .env file
 client.login(process.env.BOT_TOKEN);
 
@@ -285,23 +295,10 @@ app.get("/", (req, res) => {
   res.send("Bot is alive!");
 });
 
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Keep-alive server running on port ${PORT}`);
-
-
-
-
-
-
-  
-  const ravCommand = require("./commands/rav");
-client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
-
-  if (interaction.commandName === "rav") {
-    await ravCommand.execute(interaction);
-  }
 });
-});
+
 
