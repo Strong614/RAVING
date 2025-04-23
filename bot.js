@@ -283,6 +283,8 @@ client.on("interactionCreate", async (interaction) => {
   if (interaction.commandName === "rav") {
     await ravCommand.execute(interaction);
   }
+  console.log('Received !rav command with arguments:', args); // Check the arguments
+
 });
 
 // Login to Discord with your bot token from .env file
