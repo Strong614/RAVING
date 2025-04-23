@@ -1,6 +1,6 @@
 // commands/rav.js
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const { fetchAllPosts } = require("../utils/ravScraper");
+const { scrapeRAVMediaArchive } = require("../utils/ravScraper");
 
 function applyFilters(posts, filters) {
   return posts.filter(post => {
@@ -24,7 +24,7 @@ module.exports = {
       if (key && value) filters[key] = value;
     }
 
-    const allPosts = await fetchAllPosts();
+    const allPosts = await scrapeRAVMediaArchive();
     const filtered = applyFilters(allPosts, filters);
 
     const itemsPerPage = 5;
