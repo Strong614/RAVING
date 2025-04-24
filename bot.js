@@ -275,18 +275,29 @@ client.on('messageCreate', async (message) => {
   
 });
 
-// Media Archieve scraping
-const ravCommand = require("./commands/rav");
-client.on("interactionCreate", async (interaction) => {
-  if (!interaction.isChatInputCommand()) return;
+// Media Archieve scraping ------------------------------------------------------------------------------------
 
-  if (interaction.commandName === "rav") {
-    await ravCommand.execute(interaction);
+const prefix = "!";
+
+// Message-based commands
+client.on("messageCreate", async (message) => {
+  if (message.author.bot || !message.content.startsWith(prefix)) return;
+
+  const args = message.content.slice(prefix.length).trim().split(/ +/);
+  const commandName = args.shift().toLowerCase();
+
+  if (commandName === "rav") {
+    try {
+      const ravCommand = require("./commands/rav");
+      await ravCommand.execute(message, args);
+    } catch (error) {
+      console.error("Error executing !rav:", error);
+      message.reply("❌ There was an error trying to run the !rav command.");
+    }
   }
-  console.log('Received !rav command with arguments:', args); // Check the arguments
-
 });
 
+//  -----------------------------------------------------------------------------------------------------------
 // Login to Discord with your bot token from .env file
 client.login(process.env.BOT_TOKEN);
 
