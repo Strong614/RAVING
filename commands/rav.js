@@ -4,7 +4,7 @@ const cheerio = require('cheerio');
 
 module.exports = {
   name: 'rav',
-  description: 'Scrape RAV media archive and show activity stats',
+  description: 'Scrape RAV media archive and show activity stats with optional filters',
   async execute(message, args) {
     const startUrl = 'https://saesrpg.uk/forums/topic/42510-rapid-assault-vanguard-media-archive/';
     const headers = { 'User-Agent': 'Mozilla/5.0' };
@@ -13,19 +13,27 @@ module.exports = {
     const seenPosts = new Set();
     let currentUrl = startUrl;
 
-    // Get and normalize the filter (events → event)
-    const rawFilter = args[0] ? args[0].toLowerCase() : null;
-    const normalizedFilters = {
-      events: 'event',
-      activity: 'activity',
-      roleplay: 'roleplay'
-    };
+    // Handle optional filters
+    const validFilters = ['events', 'activity', 'roleplay'];
+    let filterType = null;
+    let posterFilter = null;
 
-    if (rawFilter && !normalizedFilters.hasOwnProperty(rawFilter)) {
-      return message.reply('Invalid filter type. Please use `events`, `activity`, or `roleplay`.');
+    // Parse filter for activity type (e.g., 'activity', 'event', 'roleplay')
+    const filterArg = args.find(arg => validFilters.includes(arg.toLowerCase()));
+    if (filterArg) {
+      filterType = filterArg.toLowerCase();
     }
 
-    const activityFilter = rawFilter ? normalizedFilters[rawFilter] : null;
+    // Parse poster filter (e.g., 'poster:lightside')
+    const posterArg = args.find(arg => arg.toLowerCase().startsWith('poster:'));
+    if (posterArg) {
+      posterFilter = posterArg.split(':')[1]?.toLowerCase();
+    }
+
+    // Early return if only the poster filter is provided (without activity filter)
+    if (posterFilter && !filterType) {
+      return message.reply(`No activity filter specified with poster filter "${posterFilter}". Please specify an activity type like "activity", "event", or "roleplay".`);
+    }
 
     try {
       while (currentUrl) {
@@ -45,25 +53,19 @@ module.exports = {
           bannerImg = bannerImg.toLowerCase();
 
           let activityType = null;
-
           if (bannerImg.includes('smkyyxm')) activityType = 'Activity';
           else if (bannerImg.includes('bkmozrh')) activityType = 'Event';
           else if (bannerImg.includes('flhet6c')) activityType = 'Roleplay';
 
           if (!activityType) {
-            if (postText.toLowerCase().includes('event')) {
-              activityType = 'Event';
-            } else if (postText.toLowerCase().includes('roleplay')) {
-              activityType = 'Roleplay';
-            } else {
-              activityType = 'Activity';
-            }
+            if (postText.toLowerCase().includes('event')) activityType = 'Event';
+            else if (postText.toLowerCase().includes('roleplay')) activityType = 'Roleplay';
+            else activityType = 'Activity';
           }
 
-          if (!activityType) return;
-
-          // Filter by type
-          if (activityFilter && activityType.toLowerCase() !== activityFilter) return;
+          // Apply filters
+          if (filterType && activityType.toLowerCase() !== filterType) return;
+          if (posterFilter && !poster.toLowerCase().includes(posterFilter)) return;
 
           let participants = postText.match(/Participants\s*:\s*(.+)/i)?.[1]?.split(/,| and | & /).map(p => p.trim()) || [];
           let date = postText.match(/Date\s*:\s*(.+)/i)?.[1]?.trim() || null;
@@ -87,11 +89,10 @@ module.exports = {
         }
       }
 
+      // Check if no posts were found and return a message
       if (allPosts.length === 0) {
         return message.channel.send(
-          activityFilter
-            ? `No ${activityFilter} posts found.`
-            : 'No valid posts found.'
+          `No posts found${filterType ? ` for type "${filterType}"` : ''}${posterFilter ? ` by poster "${posterFilter}"` : ''}.`
         );
       }
 
@@ -102,15 +103,14 @@ module.exports = {
         const posts = allPosts.slice(pageIndex * maxPostsPerPage, (pageIndex + 1) * maxPostsPerPage);
         const embed = new EmbedBuilder()
           .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
-          .setTitle(`📘 RAV ${activityFilter ? activityFilter.charAt(0).toUpperCase() + activityFilter.slice(1) : 'Media'} Archive Summary`)
+          .setTitle(`📘 RAV Archive Summary`)
           .setColor('#A2C6CA')
-          .setDescription(`Total Posts: ${allPosts.length} | Page ${pageIndex + 1}`)
+          .setDescription(`Total Posts: ${allPosts.length} | Page ${pageIndex + 1}${filterType ? ` | Type: ${filterType}` : ''}${posterFilter ? ` | Poster: ${posterFilter}` : ''}`)
           .addFields(posts.map((post, i) => ({
             name: `#${pageIndex * maxPostsPerPage + i + 1} - ${post.activityType}`,
             value: `👤 Poster: ${post.poster}\n📅 Date: ${post.date || 'N/A'}\n🧑‍🤝‍🧑 Participants: ${post.participants.length ? post.participants.join(', ') : 'N/A'}\n🔗 [View Post](${post.postUrl})`,
             inline: false
           })))
-          .setFooter({ text: 'Made by Lking Strong ✨' })
           .setTimestamp();
 
         return embed;
@@ -133,7 +133,6 @@ module.exports = {
       collector.on('collect', async interaction => {
         if (interaction.customId === 'next') currentPage++;
         if (interaction.customId === 'previous') currentPage--;
-
         await interaction.update({ embeds: [createEmbed(currentPage)], components: [createButtons(currentPage)] });
       });
 

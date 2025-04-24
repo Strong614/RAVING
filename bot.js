@@ -254,6 +254,7 @@ client.on('messageCreate', async (message) => {
   if (command === '!help') {
     console.log(`Responding to !help from bot instance at ${new Date().toLocaleTimeString()}`);
     const helpEmbed = new EmbedBuilder()
+      .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
       .setColor('#A2C6CA')
       .setTitle('Bot Commands Help')
       .addFields(
