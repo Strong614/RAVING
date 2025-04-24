@@ -36,6 +36,9 @@ module.exports = {
     }
 
     try {
+      // Flag to check if valid posts are found
+      let validPostsFound = false;
+
       while (currentUrl) {
         const response = await axios.get(currentUrl, { headers });
         const $ = cheerio.load(response.data);
@@ -63,9 +66,12 @@ module.exports = {
             else activityType = 'Activity';
           }
 
-          // Apply filters
+          // Apply filters early: If the post does not match filters, skip it
           if (filterType && activityType.toLowerCase() !== filterType) return;
           if (posterFilter && !poster.toLowerCase().includes(posterFilter)) return;
+
+          // Mark that a valid post is found
+          validPostsFound = true;
 
           let participants = postText.match(/Participants\s*:\s*(.+)/i)?.[1]?.split(/,| and | & /).map(p => p.trim()) || [];
           let date = postText.match(/Date\s*:\s*(.+)/i)?.[1]?.trim() || null;
@@ -89,8 +95,8 @@ module.exports = {
         }
       }
 
-      // Check if no posts were found and return a message
-      if (allPosts.length === 0) {
+      // If no valid posts match the filter, return early with a "no posts found" message
+      if (!validPostsFound) {
         return message.channel.send(
           `No posts found${filterType ? ` for type "${filterType}"` : ''}${posterFilter ? ` by poster "${posterFilter}"` : ''}.`
         );
