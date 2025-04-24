@@ -265,9 +265,25 @@ client.on('messageCreate', async (message) => {
         {
           name: '`!om <organization name>`',
           value: 'Displays online players who are members of a specific organization. for Example: `!om Rapid.Assault.Vang...` (Be careful with misspellings)',
+        },
+        {
+          name: '`!rav`',
+          value: 'Displays RAV Media Archive',
+        },
+        {
+          name: '`!rav events`',
+          value: 'Displays all events in RAV media archive',
+        },
+        {
+          name: '`!rav activity`',
+          value: 'Displays all activities in RAV archive media',
+        },
+        {
+          name: '`!rav roleplay`',
+          value: 'Displays all events in RAV archive media',
         }
       )
-      .setFooter({ text: 'Made by Strong ✨' })
+      .setFooter({ text: 'Made by Lking Strong ✨' })
       .setTimestamp();
   
     return message.channel.send({ embeds: [helpEmbed] });
