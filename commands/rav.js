@@ -14,7 +14,7 @@ module.exports = {
     let currentUrl = startUrl;
 
     // Handle optional filters
-    const validFilters = ['events', 'activity', 'roleplay'];
+    const validFilters = ['event', 'activity', 'roleplay'];
     let filterType = null;
     let posterFilter = null;
 
