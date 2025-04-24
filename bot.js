@@ -256,31 +256,28 @@ client.on('messageCreate', async (message) => {
     const helpEmbed = new EmbedBuilder()
       .setColor('#A2C6CA')
       .setTitle('Bot Commands Help')
-      .setDescription('Here are the available commands:')
       .addFields(
         {
-          name: '`!op`',
-          value: 'Displays all currently online players',
+          value: '`!op` Displays all currently online players',
         },
         {
-          name: '`!om <organization name>`',
-          value: 'Displays online players who are members of a specific organization. for Example: `!om Rapid.Assault.Vang...` (Be careful with misspellings)',
+          value: '`!om <organization name>` Displays online players who are members of a specific organization. for Example: `!om Rapid.Assault.Vang...` (Be careful with misspellings)',
         },
         {
-          name: '`!rav`',
-          value: 'Displays RAV Media Archive',
+
+          value: '`!rav` Displays RAV media archive',
         },
         {
-          name: '`!rav events`',
-          value: 'Displays all events in RAV media archive',
+
+          value: '`!rav events` Displays all events in RAV media archive',
         },
         {
-          name: '`!rav activity`',
-          value: 'Displays all activities in RAV archive media',
+
+          value: '`!rav activity` Displays all activities in RAV media archive',
         },
         {
-          name: '`!rav roleplay`',
-          value: 'Displays all events in RAV archive media',
+
+          value: '`!rav roleplay` Displays all events in RAV media archive',
         }
       )
       .setFooter({ text: 'Made by Lking Strong ✨' })
