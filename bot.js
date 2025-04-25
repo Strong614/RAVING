@@ -312,6 +312,34 @@ client.on("messageCreate", async (message) => {
 });
 
 //  -----------------------------------------------------------------------------------------------------------
+
+// Add this at the top of your bot.js to require the forum.js command handler
+const forumCommand = require('./commands/forum');  // Adjust path if necessary
+
+// Inside the client.on('messageCreate') event, handle the `!forum` command
+client.on('messageCreate', async (message) => {
+  const allowedChannels = ['1360930454428979263'];  // Channels where the bot should respond
+  const args = message.content.split(' ');  // Split the message by spaces
+  const command = args[0].toLowerCase();  // Extract the command
+
+  if (!allowedChannels.includes(message.channel.id)) return;  // Ignore if the message is not in the allowed channels
+
+  // Check if the message starts with "!" to treat it as a command
+  if (command === '!forum') {
+    try {
+      // Pass the message and arguments to the forum command
+      await forumCommand.execute(message, args.slice(1));  // Remove the command from the args array
+    } catch (error) {
+      console.error("Error executing !forum:", error);
+      message.reply("❌ There was an error trying to post your message to the forum.");
+    }
+  }
+
+  // Other command checks (like !op, !help, etc.) remain as they are
+});
+
+
+
 // Login to Discord with your bot token from .env file
 client.login(process.env.BOT_TOKEN);
 
