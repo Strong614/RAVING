@@ -13,14 +13,12 @@ RUN apt-get update && \
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
 
-# Create the app directory
+# Create app directory
 WORKDIR /app
 
 # Download and install the correct version of ChromeDriver for Linux
 RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
-    ls -l && \  # List files to ensure chromedriver was extracted
-    rm -f chromedriver && \
     mv chromedriver /app/chromedriver && \
     chmod +x /app/chromedriver
 
