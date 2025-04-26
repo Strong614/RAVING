@@ -17,7 +17,7 @@ FORUM_USERNAME = os.environ["FORUM_USERNAME"]
 FORUM_PASSWORD = os.environ["FORUM_PASSWORD"]
 
 # Path to the ChromeDriver executable
-chrome_driver_path = r"C:\Users\gabtn\OneDrive\Desktop\rav-bot\chromedriver-win64\chromedriver.exe"
+chrome_driver_path = r"/app/chromedriver"
 
 # Get the message passed from Discord bot
 forum_message = base64.b64decode(sys.argv[1]).decode("utf-8")
@@ -26,6 +26,8 @@ forum_message = base64.b64decode(sys.argv[1]).decode("utf-8")
 # Initialize Chrome options
 chrome_options = Options()
 chrome_options.add_argument("--headless")  # Run in headless mode (optional)
+chrome_options.add_argument("--no-sandbox")  # Disable sandboxing in Docker
+chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome potential issues with shared memory in Docker
 
 # Initialize Selenium WebDriver using the Service object
 service = Service(chrome_driver_path)
