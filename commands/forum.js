@@ -13,7 +13,7 @@ module.exports = {
 
     message.channel.send("📨 Posting your message to the forum...");
 
-    exec(`python3 forum_poster.py "${encoded}"`, (error, stdout, stderr) => {
+    exec(`python forum_poster.py "${encoded}"`, (error, stdout, stderr) => {
       if (error) {
         console.error(`❌ exec error: ${error.message}`);
         return message.channel.send("❌ Failed to post to the forum.");
