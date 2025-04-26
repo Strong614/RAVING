@@ -13,22 +13,21 @@ RUN apt-get update && \
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
 
+# Download and install the correct version of ChromeDriver for Linux
+RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
+    unzip chromedriver_linux64.zip && \
+    mv chromedriver /app/chromedriver && \
+    chmod +x /app/chromedriver
+
 # Create app directory
 WORKDIR /app
 
-# Copy ChromeDriver
-COPY chromedriver-win64/chromedriver.exe /app/chromedriver
-
-# Make sure chromedriver is executable
-RUN chmod +x /app/chromedriver
-
-
 # Copy Node.js dependencies
-COPY package*.json ./
+COPY package*.json ./ 
 RUN npm install
 
 # Copy Python dependencies
-COPY requirements.txt ./
+COPY requirements.txt ./ 
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the app
