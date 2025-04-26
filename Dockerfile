@@ -9,13 +9,17 @@ RUN apt-get update && \
     libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-3-0 libxkbcommon0 && \
     ln -s /usr/bin/python3 /usr/bin/python
 
-# Install Google Chrome
+# Uninstall current Chrome version
+RUN apt-get remove -y google-chrome-stable
+
+# Install Chrome version 114 (you can replace with the exact version you need)
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
 
+
 # Ensure /app directory exists before moving chromedriver
 RUN mkdir -p /app && \
-    wget https://chromedriver.storage.googleapis.com/135.0.7049.114/chromedriver_linux64.zip && \
+    wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
     mv chromedriver /app/chromedriver && \
     chmod +x /app/chromedriver

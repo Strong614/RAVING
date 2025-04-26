@@ -35,6 +35,7 @@ chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome potential iss
 service = Service(chrome_driver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
+
 # Example function for logging in
 def login():
     driver.get("https://saesrpg.uk/login/")
