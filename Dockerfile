@@ -19,6 +19,10 @@ WORKDIR /app
 # Copy ChromeDriver
 COPY chromedriver-win64/chromedriver.exe /app/chromedriver
 
+# Make sure chromedriver is executable
+RUN chmod +x /app/chromedriver
+
+
 # Copy Node.js dependencies
 COPY package*.json ./
 RUN npm install
