@@ -8,22 +8,18 @@ module.exports = {
       return message.channel.send("❌ Please provide a message to post.");
     }
 
-    // Join the message content and escape special characters
-    const postContent = args.join(" ").replace(/"/g, '\\"'); // escape quotes
-    const escapedPostContent = postContent.replace(/[\n\r]/g, " ");  // Remove any newline characters to avoid issues
+    const postContent = message.content.split(" ").slice(1).join(" ").replace(/"/g, '\\"'); // everything after !forum
+    const encoded = Buffer.from(postContent, 'utf8').toString('base64'); // Encode to safely pass multiline
 
     message.channel.send("📨 Posting your message to the forum...");
 
-    exec(`python3 forum_poster.py "${escapedPostContent}"`, (error, stdout, stderr) => {
+    exec(`python3 forum_poster.py "${encoded}"`, (error, stdout, stderr) => {
       if (error) {
         console.error(`❌ exec error: ${error.message}`);
         return message.channel.send("❌ Failed to post to the forum.");
       }
 
-      if (stderr) {
-        console.error(`stderr: ${stderr}`);
-      }
-
+      if (stderr) console.error(`stderr: ${stderr}`);
       console.log(`stdout: ${stdout}`);
       message.channel.send("✅ Successfully posted to the forum.");
     });

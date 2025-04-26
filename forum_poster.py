@@ -1,6 +1,7 @@
 import sys
 import time
 import os
+import base64
 from dotenv import load_dotenv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -22,7 +23,8 @@ FORUM_PASSWORD = os.getenv('FORUM_PASSWORD')
 chrome_driver_path = r"C:\Users\gabtn\OneDrive\Desktop\rav-bot\chromedriver-win64\chromedriver.exe"
 
 # Get the message passed from Discord bot
-forum_message = sys.argv[1]  # Get the forum message passed from Discord bot
+forum_message = base64.b64decode(sys.argv[1]).decode("utf-8")
+
 
 # Initialize Chrome options
 chrome_options = Options()
