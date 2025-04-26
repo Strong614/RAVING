@@ -1,5 +1,8 @@
-# Base image with Node.js and Python
+# Base image with Node.js and Debian Bullseye
 FROM node:20-bullseye
+
+# Set environment variable to avoid prompts during package installs
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install system dependencies and Python
 RUN apt-get update && \
@@ -9,33 +12,35 @@ RUN apt-get update && \
     libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-3-0 libxkbcommon0 && \
     ln -s /usr/bin/python3 /usr/bin/python
 
-# Install latest Chrome (automatically installed from base image updates)
+# Install Google Chrome (version 135)
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
-
-# Install Chromedriver version 135 to match Chrome version 135
-RUN wget https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip && \
-    unzip chromedriver-linux64.zip && \
-    mv chromedriver-linux64/chromedriver /app/chromedriver && \
-    chmod +x /app/chromedriver && \
-    rm -rf chromedriver-linux64*
+    dpkg -i google-chrome-stable_current_amd64.deb || true && \
+    apt-get install -f -y && \
+    rm google-chrome-stable_current_amd64.deb
 
 # Create app directory and set working directory
 WORKDIR /app
 
-# Copy Node.js dependencies
+# Install Chromedriver (version 135 to match Chrome)
+RUN wget https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip && \
+    unzip chromedriver-linux64.zip && \
+    mv chromedriver-linux64/chromedriver ./chromedriver && \
+    chmod +x ./chromedriver && \
+    rm -rf chromedriver-linux64*
+
+# Copy Node.js dependencies and install
 COPY package*.json ./
 RUN npm install
 
-# Copy Python dependencies
+# Copy Python requirements and install
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the app
+# Copy the rest of the application
 COPY . .
 
-# Make sure forum_poster.py is executable (optional)
+# Ensure forum_poster.py is executable
 RUN chmod +x forum_poster.py
 
-# Start the bot
+# Start the Discord bot
 CMD ["node", "bot.js"]
