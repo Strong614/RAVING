@@ -19,10 +19,12 @@ WORKDIR /app
 # Download and install the correct version of ChromeDriver for Linux
 RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
+    ls -l && \  # List files to ensure chromedriver was extracted
     mkdir -p /app && \
     rm -f /app/chromedriver && \
     mv chromedriver /app/chromedriver && \
     chmod +x /app/chromedriver
+
 
     # Copy Node.js dependencies
 COPY package*.json ./ 
