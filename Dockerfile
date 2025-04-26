@@ -20,10 +20,11 @@ WORKDIR /app
 RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
     mkdir -p /app && \
+    rm -f /app/chromedriver && \
     mv chromedriver /app/chromedriver && \
     chmod +x /app/chromedriver
 
-# Copy Node.js dependencies
+    # Copy Node.js dependencies
 COPY package*.json ./ 
 RUN npm install
 
