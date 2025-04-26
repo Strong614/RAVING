@@ -12,7 +12,9 @@ RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.d
     apt-get install -f -y
 
 # Copy the chromedriver into the container
-COPY chromedriver /app/chromedriver
+COPY chromedriver-win64/chromedriver.exe /app/chromedriver
+
+
 
 # Create app directory
 WORKDIR /app

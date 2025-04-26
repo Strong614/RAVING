@@ -17,7 +17,9 @@ FORUM_USERNAME = os.environ["FORUM_USERNAME"]
 FORUM_PASSWORD = os.environ["FORUM_PASSWORD"]
 
 # Path to the ChromeDriver executable
-chrome_driver_path = r"/app/chromedriver"
+chrome_driver_path = "/app/chromedriver"
+
+
 
 # Get the message passed from Discord bot
 forum_message = base64.b64decode(sys.argv[1]).decode("utf-8")
