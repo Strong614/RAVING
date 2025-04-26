@@ -1,4 +1,7 @@
-import sys, time, os, base64
+import sys
+import time
+import os
+import base64
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -8,8 +11,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
-# Load environment variables from the .env file
-load_dotenv()
 
 # Fetching username and password from environment variables
 FORUM_USERNAME = os.environ["FORUM_USERNAME"]
