@@ -37,4 +37,3 @@ RUN chmod +x forum_poster.py
 # Run the bot (or any other command)
 CMD ["node", "bot.js"]
 
-docker run -e FORUM_USERNAME="your_username" -e FORUM_PASSWORD="your_password" your_image_name
