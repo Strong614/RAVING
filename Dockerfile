@@ -20,7 +20,7 @@ WORKDIR /app
 RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
     ls -l && \  # List files to ensure chromedriver was extracted
-    rm -f /app/chromedriver && \  # Remove any existing chromedriver (if needed)
+    rm -f chromedriver && \
     mv chromedriver /app/chromedriver && \
     chmod +x /app/chromedriver
 
