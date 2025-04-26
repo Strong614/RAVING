@@ -1,8 +1,4 @@
-import sys
-import time
-import os
-import base64
-from dotenv import load_dotenv
+import sys, time, os, base64
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -16,8 +12,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 load_dotenv()
 
 # Fetching username and password from environment variables
-FORUM_USERNAME = os.getenv('FORUM_USERNAME')
-FORUM_PASSWORD = os.getenv('FORUM_PASSWORD')
+FORUM_USERNAME = os.environ["FORUM_USERNAME"]
+FORUM_PASSWORD = os.environ["FORUM_PASSWORD"]
 
 # Path to the ChromeDriver executable
 chrome_driver_path = r"C:\Users\gabtn\OneDrive\Desktop\rav-bot\chromedriver-win64\chromedriver.exe"
