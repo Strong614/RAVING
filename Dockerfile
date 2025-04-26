@@ -13,14 +13,14 @@ RUN apt-get update && \
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
 
-# Download and install the correct version of ChromeDriver for Linux
-RUN wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
+# Ensure /app directory exists before moving chromedriver
+RUN mkdir -p /app && \
+    wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
     unzip chromedriver_linux64.zip && \
-    mv chromedriver /app/chromedriver_temp && \
-    chmod +x /app/chromedriver_temp && \
-    mv /app/chromedriver_temp /app/chromedriver
+    mv chromedriver /app/chromedriver && \
+    chmod +x /app/chromedriver
 
-# Create app directory
+# Create app directory and set working directory
 WORKDIR /app
 
 # Copy Node.js dependencies
