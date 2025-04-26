@@ -318,14 +318,23 @@ const forumCommand = require('./commands/forum');  // Adjust path if necessary
 
 // Inside the client.on('messageCreate') event, handle the `!forum` command
 client.on('messageCreate', async (message) => {
-  const allowedChannels = ['1360930454428979263'];  // Channels where the bot should respond
+  const allowedChannels = ['1360930454428979263', '1365684605528838254'];  // Channels where the bot should respond
+  const allowedRoles = ['1361015649228292237', '1361015191420276816', '1361014773457748189','1361013909603094669','1361013084952461492','1361012218254069810','1361012027832795206','1361011710277845012','1361016918001058005'];  // Add allowed role IDs here
+  
   const args = message.content.split(' ');  // Split the message by spaces
   const command = args[0].toLowerCase();  // Extract the command
 
   if (!allowedChannels.includes(message.channel.id)) return;  // Ignore if the message is not in the allowed channels
 
   // Check if the message starts with "!" to treat it as a command
-  if (command === '!forum') {
+  if (command === '!postmedia') {
+        // Check if the user has at least one allowed role
+        const memberRoles = message.member.roles.cache;
+        const hasAllowedRole = allowedRoles.some(roleId => memberRoles.has(roleId));
+    
+        if (!hasAllowedRole) {
+          return message.reply("❌ You don't have permission to use this command.");
+        }
     try {
       // Pass the message and arguments to the forum command
       await forumCommand.execute(message, args.slice(1));  // Remove the command from the args array
