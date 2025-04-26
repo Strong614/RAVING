@@ -9,30 +9,26 @@ RUN apt-get update && \
     libxcomposite1 libxdamage1 libxrandr2 libgbm1 libgtk-3-0 libxkbcommon0 && \
     ln -s /usr/bin/python3 /usr/bin/python
 
-# Ensure Chrome is installed or skip removal if not found
-RUN dpkg --get-selections | grep -q google-chrome-stable && \
-    apt-get remove -y google-chrome-stable || echo "Google Chrome not installed"
-
-# Install Chrome version 114 (you can replace with the exact version you need)
+# Install latest Chrome (automatically installed from base image updates)
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     dpkg -i google-chrome-stable_current_amd64.deb || apt-get install -f -y
 
-# Ensure /app directory exists before moving chromedriver
-RUN mkdir -p /app && \
-    wget https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip && \
-    unzip chromedriver_linux64.zip && \
-    mv chromedriver /app/chromedriver && \
-    chmod +x /app/chromedriver
+# Install Chromedriver version 135 to match Chrome version 135
+RUN wget https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip && \
+    unzip chromedriver-linux64.zip && \
+    mv chromedriver-linux64/chromedriver /app/chromedriver && \
+    chmod +x /app/chromedriver && \
+    rm -rf chromedriver-linux64*
 
 # Create app directory and set working directory
 WORKDIR /app
 
 # Copy Node.js dependencies
-COPY package*.json ./ 
+COPY package*.json ./
 RUN npm install
 
 # Copy Python dependencies
-COPY requirements.txt ./ 
+COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the app
