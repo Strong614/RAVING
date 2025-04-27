@@ -1,0 +1,667 @@
+[2025-04-27 02:10:09] [Output] : * Connected! [MTA:SA Server 1.6 [GNU/Linux x64]]
+[2025-04-27 02:10:11] [Output] : Server FPS limit: 100
+[2025-04-27 02:10:15] [Output] : Server AC info: [Allowed client files: None] [Disabled AC: None] [Enabled SD: 15,22,31,32,33,36]
+[2025-04-27 02:10:25] [Output] : * 215|Bizzard killed [SWAT]DJO. (Combat Shotgun)
+[2025-04-27 02:10:26] [Output] : GetAway<ASAC>: come sr moduel
+[2025-04-27 02:10:33] [Output] : [OG]Model|KOUNDE: NOT OK TO BE GAY
+[2025-04-27 02:10:36] [Output] : * 215|Bizzard killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 02:10:36] [Output] : [SWAT]Dinaz: welcome back gotchi
+[2025-04-27 02:10:41] [Output] : * Yz|Cicada killed [RAV]Yamal. (Grenade)
+[2025-04-27 02:10:42] [Output] : * 215|Bizzard killed BloodyMonsoon86. (Combat Shotgun)
+[2025-04-27 02:10:44] [Output] : * [FBI]Genetrix killed 215|Bizzard. (Nightstick)
+[2025-04-27 02:10:51] [Output] : [RAV]Gotchi: dinaz you fucking piece of shit
+[2025-04-27 02:10:53] [Output] : [RAV]Gotchi: fuck off
+[2025-04-27 02:11:04] [Output] : GetAway<ASAC>: nub
+[2025-04-27 02:11:05] [Output] : [OG]Model|KOUNDE: fuckers
+[2025-04-27 02:11:07] [Output] : [FBI]Limits: hahhaha
+[2025-04-27 02:11:09] [Output] : [SWAT]Mr.Xleepy: tu vieja
+[2025-04-27 02:11:14] [Output] : You are now logged in as: mas3ouda
+[2025-04-27 02:11:16] [Output] : login: You successfully logged in
+[2025-04-27 02:11:20] [Output] : voiceptt: This server does not have voice enabled
+[2025-04-27 02:11:25] [Output] : (ADMIN) Reward: [SWAT]Sou has rewarded UE|Freezy|157 with $10,000,000
+[2025-04-27 02:11:33] [Output] : * R|I-Gun killed GetAway<ASAC>. (Sniper)
+[2025-04-27 02:11:34] [Output] : * R|I-Gun killed [SPC]M8N|PC*. (Sniper)
+[2025-04-27 02:11:34] [Output] : (RADIO Flint County) [SWAT]Mr.Xleepy: DAVID 20 to COMMS. 211 is code 4, over.
+[2025-04-27 02:11:35] [Output] : * oL|Jassssser killed [RAV]Yamal. (Sniper)
+[2025-04-27 02:11:38] [Output] : [SWAT]Dinaz: why are you insulting me gotchi
+[2025-04-27 02:11:40] [Output] : * R|I-Gun killed [FBI]Limits. (Sniper)
+[2025-04-27 02:11:40] [Output] : SAES Chat: SAES>Jonas133: pure abuse
+[2025-04-27 02:11:41] [Output] : [SWAT]Dinaz: xleepy nice mute
+[2025-04-27 02:11:44] [Output] : [SWAT]Mr.Xleepy has been muted by [SWAT]Dinaz. (5 mins)
+[2025-04-27 02:11:45] [Output] : * oL|SkuuZa[1.3.1.2] killed [FBI]Genetrix. (Combat Shotgun)
+[2025-04-27 02:11:46] [Output] : * oL|Jassssser killed [SM]Freezy|157. (Sniper)
+[2025-04-27 02:11:46] [Output] : * R|SNome|VL killed [SWAT]Mr.Xleepy. (Sniper)
+[2025-04-27 02:11:47] [Output] : * R|SNome|VL killed [RAV]Winter. (Sniper)
+[2025-04-27 02:11:53] [Output] : * R|I-Gun killed [RAV]LightSide. (Sniper)
+[2025-04-27 02:11:55] [Output] : * R|I-Gun killed Lt.Dom. (Sniper)
+[2025-04-27 02:11:55] [Output] : * R|SNome|VL killed GA-123. (Combat Shotgun)
+[2025-04-27 02:11:59] [Output] : * UE|Freezy|157 died.
+[2025-04-27 02:12:01] [Output] : * UE|zK98 killed ClammyFugitive37. (Sniper)
+[2025-04-27 02:12:05] [Output] : * R|I-Gun killed GA-007. (Combat Shotgun)
+[2025-04-27 02:12:13] [Output] : [RAV]Gotchi: what's wrong with that @dinaz?
+[2025-04-27 02:12:21] [Output] : Yz|Noizi: dinaz
+[2025-04-27 02:12:23] [Output] : * Yz|Cicada killed Yz|rekethc. (Combat Shotgun)
+[2025-04-27 02:12:24] [Output] : * kingkong killed [RAV]Yamal. (M4)
+[2025-04-27 02:12:25] [Output] : [SWAT]Dinaz: what's wrong with what
+[2025-04-27 02:12:27] [Output] : [SWAT]Dinaz: hlleo noizi
+[2025-04-27 02:12:31] [Output] : Yz|Noizi: slap reket plz
+[2025-04-27 02:12:37] [Output] : Yz|rekethc: im good now thanks
+[2025-04-27 02:12:42] [Output] : Yz|Noizi: slap him even more
+[2025-04-27 02:12:44] [Output] : Yz|Adistar: dinaz is gonna make a "brainrot" joke better not
+[2025-04-27 02:12:50] [Output] : Yz|Noizi: nuh uh
+[2025-04-27 02:12:52] [Output] : Yz|rekethc: JHHHhh
+[2025-04-27 02:13:20] [Output] : [SWAT]Dinaz: adistar...
+[2025-04-27 02:13:20] [Output] : * BloodyMonsoon86 killed [FBI]Limits. (Shotgun)
+[2025-04-27 02:13:21] [Output] : * Yz|Cicada killed [RAV]Yamal. (Sniper)
+[2025-04-27 02:13:34] [Output] : * R|SNome|VL died.
+[2025-04-27 02:13:35] [Output] : * R|I-Gun died.
+[2025-04-27 02:13:36] [Output] : [SWAT]Dinaz: nuh uh noizi
+[2025-04-27 02:14:02] [Output] : * Yz|rekethc died.
+[2025-04-27 02:14:12] [Output] : * ClammyFugitive37 killed UE|zK98. (Sniper)
+[2025-04-27 02:14:29] [Output] : * UE|Dango killed [FBI*]Row. (Combat Shotgun)
+[2025-04-27 02:14:30] [Output] : * [B~B]Snoupa is now known as [RAV]Snoupa
+[2025-04-27 02:14:33] [Output] : * Soa|Rotta|DrUnK? is now known as VO>Rotta|DrUnK?
+[2025-04-27 02:14:42] [Output] : * Yz|rekethc killed [RAV]Yamal. (M4)
+[2025-04-27 02:15:11] [Output] : * oL|Jassssser killed [spc]angelx. (Combat Shotgun)
+[2025-04-27 02:15:15] [Output] : * Yz|rekethc killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:15:26] [Output] : (CC) [RAV]LightSide: KINGGG
+[2025-04-27 02:15:46] [Output] : * [SM]Freezy|157 killed [RAV]Yamal. (M4)
+[2025-04-27 02:15:52] [Output] : * ClammyFugitive37 killed UE|zK98. (Sniper)
+[2025-04-27 02:16:03] [Output] : (RADIO San Fierro) BloodyMonsoon86: any one comming VIP, over.
+[2025-04-27 02:16:19] [Output] : (RADIO San Fierro) BloodyMonsoon86: dropping, over.
+[2025-04-27 02:16:21] [Output] : [RAV]DocPizza: ??
+[2025-04-27 02:16:23] [Output] : [RAV]DocPizza: rbo
+[2025-04-27 02:16:28] [Output] : Yz|Cicada: w
+[2025-04-27 02:16:40] [Output] : UE|Freezy|157: is
+[2025-04-27 02:16:44] [Output] : [SWAT]Mr.Xleepy has been unmuted by Console.
+[2025-04-27 02:16:48] [Output] : GetAway<ASAC>: wb
+[2025-04-27 02:16:48] [Output] : [SWAT]Dinaz: welcome back xleepy
+[2025-04-27 02:16:54] [Output] : [SWAT]Mr.Xleepy: i open ticket dinaz
+[2025-04-27 02:16:58] [Output] : [SWAT]Dinaz: nooo
+[2025-04-27 02:16:59] [Output] : [SWAT]Dinaz: i sry
+[2025-04-27 02:17:04] [Output] : Yz|Noizi: he
+[2025-04-27 02:17:06] [Output] : UE|Freezy|157: mute him again
+[2025-04-27 02:17:11] [Output] : (RADIO Las Venturas) BloodyMonsoon86: bb br ?, over.
+[2025-04-27 02:17:12] [Output] : UE|Freezy|157: xleepy u gay
+[2025-04-27 02:17:13] [Output] : [SWAT]Dinaz: nbi
+[2025-04-27 02:17:13] [Output] : (RADIO Los Santos) GA-123: BB br, over.
+[2025-04-27 02:17:15] [Output] : [SWAT]Dinaz: bno
+[2025-04-27 02:17:16] [Output] : [SWAT]Dinaz: he my friend
+[2025-04-27 02:17:21] [Output] : UE|Freezy|157: he gay...
+[2025-04-27 02:17:24] [Output] : * BloodyMonsoon86 is now known as kinji333
+[2025-04-27 02:17:24] [Output] : (RADIO Red County) [SWAT]Mr.Xleepy: soon, over.
+[2025-04-27 02:17:44] [Output] : * [SM]Freezy|157 is now known as [SM]Killer|157
+[2025-04-27 02:17:53] [Output] : UE|Freezy|157: rip my fan
+[2025-04-27 02:18:02] [Output] : [OG]Model|KOUNDE: he better go to sleep freezy 
+[2025-04-27 02:18:03] [Output] : [OG]Model|KOUNDE: kkkkkkkkkk
+[2025-04-27 02:18:08] [Output] : * [B~B]Mayhem killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:18:17] [Output] : * [B~B]Mayhem killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 02:18:19] [Output] : * UE|Dango killed kinji333. (Combat Shotgun)
+[2025-04-27 02:18:32] [Output] : * [B~B]Mayhem killed [SWAT]DJO. (Dildo)
+[2025-04-27 02:18:35] [Output] : [B~B]Mayhem: ahahah
+[2025-04-27 02:18:35] [Output] : * Rebel|SWT[Sec] killed [FBI]Genetrix. (Sniper)
+[2025-04-27 02:18:41] [Output] : * UE|Freezy|157 killed [FBI]Limits. (Combat Shotgun)
+[2025-04-27 02:18:43] [Output] : * UE|Freezy|157 killed [spc]angelx. (Deagle)
+[2025-04-27 02:18:47] [Output] :  (SAHA) [B~B]Mayhem: man
+[2025-04-27 02:18:47] [Output] : [SWAT]Dinaz: mayhem
+[2025-04-27 02:18:49] [Output] : [SWAT]Dinaz: how does it feel
+[2025-04-27 02:18:50] [Output] : [B~B]Mayhem: ahahah
+[2025-04-27 02:18:52] [Output] : [SWAT]Dinaz: to treat me like u do
+[2025-04-27 02:18:57] [Output] : (CC) [RAV]Winter: ylagi had zeb
+[2025-04-27 02:18:58] [Output] : * [SWAT]Dinaz killed Yz|Filex. (Combat Shotgun)
+[2025-04-27 02:19:00] [Output] : UE|Freezy|157: gay
+[2025-04-27 02:19:00] [Output] : [B~B]Mayhem: i've never treated you bad..
+[2025-04-27 02:19:01] [Output] : [SWAT]Dinaz: ez foilex
+[2025-04-27 02:19:05] [Output] : [SWAT]Mr.Xleepy: fat
+[2025-04-27 02:19:07] [Output] : [RAV]Gotchi: getaway
+[2025-04-27 02:19:09] [Output] : * [SWAT]Mr.Xleepy killed [SWAT]Dinaz. (Combat Shotgun)
+[2025-04-27 02:19:09] [Output] : [RAV]Gotchi: fuck you
+[2025-04-27 02:19:09] [Output] : GetAway<ASAC>: ?
+[2025-04-27 02:19:12] [Output] : Yz|Filex: reported for dm to saes>teddy dinaz
+[2025-04-27 02:19:13] [Output] : [OG]Model|KOUNDE: getaway fu rat
+[2025-04-27 02:19:19] [Output] : [SWAT]Dinaz: sru
+[2025-04-27 02:19:20] [Output] : GetAway<ASAC>: yeah they usal say that
+[2025-04-27 02:19:21] [Output] : * [RAV*]GrowsFils died.
+[2025-04-27 02:19:21] [Output] : GetAway<ASAC>: .-.
+[2025-04-27 02:19:21] [Output] : [SWAT]Dinaz: sry
+[2025-04-27 02:19:29] [Output] : [SWAT]Mr.Xleepy: go br freezy
+[2025-04-27 02:19:31] [Output] : Yz|Filex: send 5m to remove ripot
+[2025-04-27 02:19:50] [Output] : UE|Freezy|157: where
+[2025-04-27 02:19:52] [Output] : [SWAT]Dinaz: no
+[2025-04-27 02:19:57] [Output] : Yz|Filex: banned 1000%
+[2025-04-27 02:20:10] [Output] : [OG]Model|KOUNDE: getaway cam hir to ur owner
+[2025-04-27 02:20:14] [Output] : [OG]Model|KOUNDE: :D
+[2025-04-27 02:20:17] [Output] : Yz|Noizi: nice dm
+[2025-04-27 02:20:30] [Output] : * O|Mah_74|XOXO died.
+[2025-04-27 02:20:40] [Output] : [SWAT]Dinaz: best br coordinator filex
+[2025-04-27 02:20:40] [Output] : * [SWAT]DJO died.
+[2025-04-27 02:20:41] [Output] : [SWAT]Dinaz: I like
+[2025-04-27 02:20:45] [Output] : Yz|Noizi: aj him dinaz
+[2025-04-27 02:20:48] [Output] : Yz|Adistar: ye aj him
+[2025-04-27 02:20:49] [Output] : [SWAT]Dinaz: do u want
+[2025-04-27 02:20:50] [Output] : Yz|Adistar: he deserves it
+[2025-04-27 02:20:57] [Output] : Yz|Filex: i said rush bank
+[2025-04-27 02:21:01] [Output] : [SWAT]Dinaz: ....
+[2025-04-27 02:21:03] [Output] : Yz|Filex: and noizi andreket got jailed
+[2025-04-27 02:21:04] [Output] : Yz|Adistar: bro aj him for being a poop coordinator
+[2025-04-27 02:21:05] [Output] : Yz|Filex: idiots
+[2025-04-27 02:21:14] [Output] : Yz|Adistar: yakuza gives approval
+[2025-04-27 02:21:17] [Output] : Yz|Adistar: 10000 secs
+[2025-04-27 02:21:17] [Output] : * O|Mah_74|XOXO died.
+[2025-04-27 02:21:27] [Output] : • ADMINJAIL • Yz|Filex has been adminjailed 
+[2025-04-27 02:21:27] [Output] :   Reason: Do not host BRs again.
+[2025-04-27 02:21:30] [Output] : Yz|Adistar: ty
+[2025-04-27 02:21:31] [Output] : UE|Freezy|157: hhhhh
+[2025-04-27 02:21:32] [Output] : Yz|Filex: :(
+[2025-04-27 02:21:34] [Output] : [SWAT]Mr.Xleepy: hahahha
+[2025-04-27 02:21:34] [Output] : [spc]angelx: HAQHAHAHAHd
+[2025-04-27 02:21:35] [Output] : [SPC]M8N|PC*: hahahahhaaha
+[2025-04-27 02:21:35] [Output] : [RAV]Snoupa: XDDdDD
+[2025-04-27 02:21:36] [Output] : cripz>fastyounq: F
+[2025-04-27 02:21:37] [Output] : [SWAT]Dinaz: enjoy nigga
+[2025-04-27 02:21:43] [Output] : GA-123: Poor filex , How many BRs failed ?
+[2025-04-27 02:21:44] [Output] : * oL|Jassssser died.
+[2025-04-27 02:21:44] [Output] : UE|Freezy|157: dinaz4admin
+[2025-04-27 02:21:47] [Output] : [SWAT]Mr.Xleepy: all
+[2025-04-27 02:21:51] [Output] : Yz|Filex: honestly
+[2025-04-27 02:21:53] [Output] : [SWAT]Dinaz: he's the reason none likes yakuza
+[2025-04-27 02:21:53] [Output] : Yz|Filex: i failed
+[2025-04-27 02:21:55] [Output] : Yz|Filex: like 4
+[2025-04-27 02:21:56] [Output] : [SWAT]Dinaz: including me
+[2025-04-27 02:22:01] [Output] : [SWAT]Mr.Xleepy: all brs failed
+[2025-04-27 02:22:12] [Output] : UE|Freezy|157: xleepy u coward
+[2025-04-27 02:22:18] [Output] : Yz|Adistar: filex hosted 4 brs in total btw
+[2025-04-27 02:22:19] [Output] : [SWAT]Dinaz: +
+[2025-04-27 02:22:23] [Output] : Rebel|SWT[Sec]: xd
+[2025-04-27 02:22:23] [Output] : GA-123: and how many have you hosted  filex
+[2025-04-27 02:22:25] [Output] : Yz|Filex: hahahahahah
+[2025-04-27 02:22:26] [Output] : Yz|Adistar: yes 4
+[2025-04-27 02:22:29] [Output] : * CripZ>Leonidas died.
+[2025-04-27 02:22:44] [Output] : Yz|Filex: bro the thing is
+[2025-04-27 02:22:45] [Output] : GA-123: you deserve to be ajled then sorry king
+[2025-04-27 02:22:52] [Output] : Yz|Filex: adistar promoted me to br manager after 2nd fail
+[2025-04-27 02:22:55] [Output] : Yz|Filex: he supports it
+[2025-04-27 02:22:58] [Output] : GetAway<ASAC>: ._.
+[2025-04-27 02:23:09] [Output] : [SWAT]Dinaz: Jajjaajajjajajjajaj fking NPC
+[2025-04-27 02:23:12] [Output] : [SWAT]Dinaz: ./quit already
+[2025-04-27 02:23:13] [Output] : [SWAT]Dinaz: good
+[2025-04-27 02:23:15] [Output] : Yz|Filex: he wants to join copside 100%
+[2025-04-27 02:23:18] [Output] : [OG]Model|KOUNDE: fuck madrid
+[2025-04-27 02:23:22] [Output] : [SWAT*]Nexroth: any free lws?
+[2025-04-27 02:23:31] [Output] : [B~B]Mayhem: arent you lws aq
+[2025-04-27 02:23:43] [Output] : [RAV]Snoupa: mayhem is free as lws
+[2025-04-27 02:24:40] [Output] : (CC) [RAV]Winter: ta7an lightside
+[2025-04-27 02:24:46] [Output] : (CC) [RAV]Yamal: yES
+[2025-04-27 02:24:47] [Output] : * [RAV]Snoupa is now known as [B~B]Snoupa
+[2025-04-27 02:24:53] [Output] : * Yz|Cicada died.
+[2025-04-27 02:24:54] [Output] : * oL|Baheryes killed [RAV]Winter. (Combat Shotgun)
+[2025-04-27 02:25:07] [Output] : [OG]Model|KOUNDE: f
+[2025-04-27 02:25:11] [Output] : * [B~B]Mayhem killed kinji333. (Combat Shotgun)
+[2025-04-27 02:25:18] [Output] : * [B~B]Mayhem killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 02:25:21] [Output] : Yz|rekethc: kos ommak dinaz
+[2025-04-27 02:25:22] [Output] : * [B~B]Mayhem killed [spc]angelx. (Combat Shotgun)
+[2025-04-27 02:25:24] [Output] : [SWAT]Dinaz: Wtf
+[2025-04-27 02:25:25] [Output] : * oL|SkuuZa[1.3.1.2] died.
+[2025-04-27 02:25:27] [Output] : Yz|rekethc has been muted by [SWAT]Dinaz. (50 mins)
+[2025-04-27 02:25:36] [Output] : Yz|Noizi: unmute him
+[2025-04-27 02:25:37] [Output] : Yz|Filex: deserve
+[2025-04-27 02:25:37] [Output] : [SM]Killer|157: Totally deserved
+[2025-04-27 02:25:38] [Output] : Yz|Filex: d
+[2025-04-27 02:25:40] [Output] : [B~B]Niklaus: Goodnight everyone <3
+[2025-04-27 02:25:41] [Output] : [OG]Model|KOUNDE: hmm ok 
+[2025-04-27 02:25:41] [Output] : (CC) [RAV]Winter: LIGHT
+[2025-04-27 02:25:41] [Output] : [SM]Killer|157: yet you are ruining our chat
+[2025-04-27 02:25:43] [Output] : [B~B]Snoupa: gn king
+[2025-04-27 02:25:43] [Output] : (CC) [RAV]Winter: RAV SS
+[2025-04-27 02:25:43] [Output] : [B~B]Niklaus: except Dinaz
+[2025-04-27 02:25:44] [Output] : (CC) [RAV]Winter: WINE
+[2025-04-27 02:25:45] [Output] : (CC) [RAV]Winter: ZEB
+[2025-04-27 02:25:46] [Output] : [SWAT]Dinaz: Goodnight Niklaus omg.
+[2025-04-27 02:25:46] [Output] : (CC) [RAV]LightSide: aa
+[2025-04-27 02:25:46] [Output] : [SWAT*]Nexroth: nn niko
+[2025-04-27 02:25:48] [Output] : (CC) [RAV]Winter: WINEK
+[2025-04-27 02:25:48] [Output] : * UE|W died.
+[2025-04-27 02:25:49] [Output] : GetAway<ASAC>: <PM From: [OG]Model|KOUNDE> ez sr
+[2025-04-27 02:25:49] [Output] : [SWAT]Dinaz: ... why
+[2025-04-27 02:25:50] [Output] : (CC) [RAV]Winter: TI WINEK
+[2025-04-27 02:25:51] [Output] : (RADIO San Fierro) [SWAT]Mr.Xleepy: SR Under police control, over.
+[2025-04-27 02:25:52] [Output] : (CC) [RAV]Winter: TI MALO HADA
+[2025-04-27 02:25:54] [Output] : [B~B]Niklaus: Cuz you're a dog
+[2025-04-27 02:25:56] [Output] : (CC) [RAV]LightSide: bro
+[2025-04-27 02:25:57] [Output] : * cripz>fastyounq died.
+[2025-04-27 02:25:57] [Output] : (RADIO San Fierro) [SWAT]Mr.Xleepy: DAVID 20 to COMMS. 211 is code 4, over.
+[2025-04-27 02:25:59] [Output] : (CC) [RAV]Winter: roh nayek
+[2025-04-27 02:26:00] [Output] : (CC) [RAV]LightSide: I'm in the car
+[2025-04-27 02:26:01] [Output] : (CC) [RAV]Winter: haya done
+[2025-04-27 02:26:02] [Output] : (CC) [RAV]Winter: idiot
+[2025-04-27 02:26:04] [Output] : [B~B]Niklaus: I said HBD to you and you insulted me
+[2025-04-27 02:26:04] [Output] : [SWAT]Dinaz: thats not nice
+[2025-04-27 02:26:05] [Output] : * [B~B]Mayhem killed kinji333. (Combat Shotgun)
+[2025-04-27 02:26:05] [Output] : [B~B]Niklaus: dog
+[2025-04-27 02:26:06] [Output] : (CC) [RAV]Winter: TA7AN
+[2025-04-27 02:26:07] [Output] : (CC) [RAV]Winter: TA7ANA
+[2025-04-27 02:26:07] [Output] : [OG]Model|KOUNDE: looks like no madridistas here to bully .. time to go bed
+[2025-04-27 02:26:08] [Output] : Yz|Filex: dw dinaz if he avoid with /gangsay i'll tell u so u aj him
+[2025-04-27 02:26:08] [Output] : * [B~B]Mayhem killed [spc]angelx. (Combat Shotgun)
+[2025-04-27 02:26:10] [Output] : [SWAT]Dinaz: reket dont quit i unmute after 5mins.
+[2025-04-27 02:26:12] [Output] : [OG]Model|KOUNDE: cya
+[2025-04-27 02:26:15] [Output] : * [B~B]Mayhem killed [FBI]Limits. (Combat Shotgun)
+[2025-04-27 02:27:02] [Output] : (CC) [RAV]Yamal: lIGHTSIDE TAHAN
+[2025-04-27 02:27:12] [Output] : Yz|Noizi: dinaz unmute him
+[2025-04-27 02:27:13] [Output] : (CC) [RAV]Winter: TA7AN
+[2025-04-27 02:27:17] [Output] : (CC) [RAV]Yamal: TAHAN
+[2025-04-27 02:27:23] [Output] : [SWAT]Dinaz: you don't tell me what to do soussian.
+[2025-04-27 02:27:24] [Output] : (CC) [RAV]LightSide: yatikom asba f zouz
+[2025-04-27 02:27:27] [Output] : * UE|Freezy|157 died.
+[2025-04-27 02:27:28] [Output] : (CC) [RAV]LightSide: afk
+[2025-04-27 02:27:28] [Output] : (CC) [RAV]Winter: tahan
+[2025-04-27 02:27:29] [Output] : Yz|Noizi: nigga do it we need him
+[2025-04-27 02:27:30] [Output] : * [B~B]Paxera killed kinji333. (Combat Shotgun)
+[2025-04-27 02:27:33] [Output] : * [B~B]Paxera killed [FBI]Genetrix. (Combat Shotgun)
+[2025-04-27 02:27:33] [Output] : (CC) [RAV]LightSide: tchedouni menou
+[2025-04-27 02:27:34] [Output] : * [B~B]Paxera killed GetAway<ASAC>. (Combat Shotgun)
+[2025-04-27 02:27:37] [Output] : Yz|Noizi: dont be an asshole
+[2025-04-27 02:27:37] [Output] : (CC) [RAV]Yamal: TAHAN KBIR
+[2025-04-27 02:27:41] [Output] : [SWAT]Dinaz: ok sorry
+[2025-04-27 02:27:41] [Output] : (CC) [RAV]Winter: TAHAN KBIIIR
+[2025-04-27 02:27:43] [Output] : Yz|rekethc has been unmuted by [SWAT]Dinaz.
+[2025-04-27 02:27:44] [Output] : * [B~B]Paxera killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 02:27:45] [Output] : Yz|Noizi: ty
+[2025-04-27 02:27:45] [Output] : [SWAT]Dinaz: sry sir reket
+[2025-04-27 02:27:50] [Output] : Yz|rekethc: dont ask me for amon us again .
+[2025-04-27 02:27:54] [Output] : [SWAT]Dinaz: WHY
+[2025-04-27 02:28:04] [Output] : [SM]Killer|157: You playing among us without me miku,
+[2025-04-27 02:28:14] [Output] : [SWAT]Dinaz: yes
+[2025-04-27 02:28:17] [Output] : [SWAT]Dinaz: he did wlh
+[2025-04-27 02:28:21] [Output] : Yz|rekethc: jjoin yz discord bir
+[2025-04-27 02:28:26] [Output] : [SWAT]Dinaz: we played like 10 among us games already
+[2025-04-27 02:28:27] [Output] : UE|Freezy|157: killer u gay 
+[2025-04-27 02:28:30] [Output] : UE|Freezy|157: stfu
+[2025-04-27 02:28:30] [Output] : [SWAT]Dinaz: but that was 5 months ago
+[2025-04-27 02:28:37] [Output] : [SWAPA]jean: when br ?
+[2025-04-27 02:28:38] [Output] : [SM]Killer|157: NICE AND NONE INVITED Me
+[2025-04-27 02:28:45] [Output] : * [SM]Killer|157 killed UE|W. (Grenade)
+[2025-04-27 02:28:47] [Output] : * Yz|Noizi killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:28:52] [Output] : [SWAT]Dinaz: miku said not to invite u particularly
+[2025-04-27 02:28:53] [Output] : [SWAT]Dinaz: not my fault
+[2025-04-27 02:29:06] [Output] : * [SWAPA]jean killed TB|Coach. (Sniper)
+[2025-04-27 02:29:06] [Output] : [SWAT]Dinaz: he's Yz - BOSS in their dc I do what he says
+[2025-04-27 02:29:06] [Output] : Yz|rekethc: yea g im africaphobia
+[2025-04-27 02:29:08] [Output] : [SM]Killer|157: I know that you tried to invite me tho, and thats what matters
+[2025-04-27 02:29:22] [Output] : [SWAT]Dinaz: yes i tried over and over
+[2025-04-27 02:29:30] [Output] : GetAway<ASAC>: bend over?
+[2025-04-27 02:29:32] [Output] : [SM]Killer|157: this imbecile estonian
+[2025-04-27 02:29:41] [Output] : [SWAPA]jean:  REPORTED
+[2025-04-27 02:29:49] [Output] : (CC) [RAV]Winter: ti winek light tahan
+[2025-04-27 02:30:09] [Output] : [B~B]Mayhem: you too bro..
+[2025-04-27 02:30:09] [Output] : (CC) [RAV]LightSide: ty bara asba
+[2025-04-27 02:30:19] [Output] : [SWAT]Dinaz: ikr
+[2025-04-27 02:30:28] [Output] : (CC) [RAV]Winter: nfdlk maak sahbi
+[2025-04-27 02:30:30] [Output] : (CC) [RAV]Winter: nhebk twin
+[2025-04-27 02:30:33] [Output] : (CC) [RAV]LightSide: haha ik retard
+[2025-04-27 02:30:42] [Output] : (CC) [RAV]Winter: tahan l shih howa briwla
+[2025-04-27 02:30:46] [Output] : (CC) [RAV]Yamal: Tahaaaaaan
+[2025-04-27 02:30:49] [Output] : [FBI]Limits: gz
+[2025-04-27 02:30:50] [Output] : UE|Freezy|157: gz
+[2025-04-27 02:30:51] [Output] : (CC) [RAV]Winter: TAHAN BRIWLA
+[2025-04-27 02:30:51] [Output] : [SPC]M8N|PC*: gz
+[2025-04-27 02:30:51] [Output] : [spc]angelx: gz
+[2025-04-27 02:30:51] [Output] : 215|Bizzard: gz
+[2025-04-27 02:30:51] [Output] : [SWAT]Mr.Xleepy: gz
+[2025-04-27 02:30:53] [Output] : [FBI]Genetrix: gz
+[2025-04-27 02:30:53] [Output] : [SPC]M8N|PC*: gz.
+[2025-04-27 02:30:56] [Output] : [B~B]Mayhem: gz
+[2025-04-27 02:30:57] [Output] : UE|Freezy|157: arrest witz 
+[2025-04-27 02:30:58] [Output] : [SWAT]Dinaz: gz
+[2025-04-27 02:31:00] [Output] : * kinji333 is now known as [SPC*]kinji333
+[2025-04-27 02:31:12] [Output] : UE|W: gz gz
+[2025-04-27 02:31:18] [Output] : * [SPC]M8N|PC* killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 02:31:32] [Output] : (CC) [RAV]Winter: AWA AWA
+[2025-04-27 02:31:34] [Output] : (CC) [RAV]Winter: MERYAAAAAAAAAMA
+[2025-04-27 02:32:01] [Output] : (CC) [RAV]Winter: Briwla
+[2025-04-27 02:32:06] [Output] : [SWAT]Mr.Xleepy: When Yz BR?
+[2025-04-27 02:32:11] [Output] : (CC) [RAV]Winter: nji ltounes n3tik 3asbti sahbi
+[2025-04-27 02:32:11] [Output] : Yz|Adistar: when filex goes to sleep
+[2025-04-27 02:32:12] [Output] : Rebel|SWT[Sec]: 2026 they said
+[2025-04-27 02:32:15] [Output] : (CC) [RAV]Yamal: yes
+[2025-04-27 02:32:16] [Output] : Yz|rekethc: waiting for jean to go off
+[2025-04-27 02:32:18] [Output] : (CC) [RAV]Winter: yes?
+[2025-04-27 02:32:19] [Output] : [RAV]Yamal: Ija
+[2025-04-27 02:32:22] [Output] : [SWAT]Mr.Xleepy: XD
+[2025-04-27 02:32:26] [Output] : [RAV]Yamal: xchat
+[2025-04-27 02:32:27] [Output] : (CC) [RAV]Winter: miboun mtaa zeb
+[2025-04-27 02:32:29] [Output] : CripZ>Leonidas: Gn Everyone
+[2025-04-27 02:32:32] [Output] : [SWAT]Dinaz: Goodnight
+[2025-04-27 02:32:33] [Output] : GA-123: gn
+[2025-04-27 02:32:33] [Output] : [B~B]Mayhem: nerf dimarco @ravhq
+[2025-04-27 02:32:35] [Output] : [SWAT]Mr.Xleepy: gn
+[2025-04-27 02:32:35] [Output] : GetAway<ASAC>: gn
+[2025-04-27 02:32:41] [Output] : (CC) [RAV]Winter: NERF DIMARCO
+[2025-04-27 02:32:42] [Output] : (CC) [RAV]Winter: AHAHAHHAHAHA
+[2025-04-27 02:32:43] [Output] : [RAV]LightSide: already 
+[2025-04-27 02:32:48] [Output] : [RAV]Yamal: Hahahaha
+[2025-04-27 02:33:26] [Output] : * [SM]Killer|157 killed Yz|rekethc. (Sniper)
+[2025-04-27 02:33:34] [Output] : * [SM]Killer|157 killed Yz|Cicada. (Sniper)
+[2025-04-27 02:33:40] [Output] : * [SM]Killer|157 killed Yz|Adistar. (Sniper)
+[2025-04-27 02:33:45] [Output] : * [SM]Killer|157 killed Yz|Filex. (Sniper)
+[2025-04-27 02:33:48] [Output] : * Yz|Noizi killed [SM]Killer|157. (M4)
+[2025-04-27 02:34:29] [Output] : (CC) [RAV]Winter: yamal lyoum ban ki l3atrous
+[2025-04-27 02:34:33] [Output] : [B~B]Mayhem: raceflags online 2/3
+[2025-04-27 02:34:36] [Output] : [B~B]Mayhem: racists awaiting
+[2025-04-27 02:34:37] [Output] : * Yz|Adistar killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:34:47] [Output] : * UE|W killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 02:34:55] [Output] : * UE|W killed [FBI]Genetrix. (Combat Shotgun)
+[2025-04-27 02:35:07] [Output] : [SWAT]Mr.Xleepy: ez freezys
+[2025-04-27 02:35:08] [Output] : (CC) [RAV]Winter: ss
+[2025-04-27 02:35:09] [Output] : (CC) [RAV]Winter: BARA
+[2025-04-27 02:35:09] [Output] : UE|Freezy|157: :(
+[2025-04-27 02:35:11] [Output] : (CC) [RAV]Winter: RAVSS
+[2025-04-27 02:35:16] [Output] : (CC) [RAV]Winter: IJOU NAYK
+[2025-04-27 02:35:17] [Output] : [SWAT]Mr.Xleepy: 50 vs u
+[2025-04-27 02:35:18] [Output] : [SWAT]Mr.Xleepy: :DD
+[2025-04-27 02:35:18] [Output] : (CC) [RAV]Winter: LIGHT
+[2025-04-27 02:35:27] [Output] : (CC) [RAV]Winter: SERBI
+[2025-04-27 02:35:28] [Output] : (CC) [RAV]Winter: NAYEK
+[2025-04-27 02:35:29] [Output] : * [SM]Killer|157 killed Yz|Filex. (Sniper)
+[2025-04-27 02:35:29] [Output] : (CC) [RAV]Winter: IJRI
+[2025-04-27 02:35:31] [Output] : UE|Freezy|157: i call BOPE unit to rape u
+[2025-04-27 02:35:31] [Output] : (RADIO Los Santos) [SWAT]Mr.Xleepy: DAVID 20 to COMMS. 211 is code 4, over.
+[2025-04-27 02:35:33] [Output] : (CC) [RAV]Winter: DONE
+[2025-04-27 02:35:36] [Output] : * Yz|rekethc killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:36:26] [Output] : [B~B]Mayhem: 1m for winner on rf
+[2025-04-27 02:36:33] [Output] : * Yz|Adistar killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:36:44] [Output] : * Yz|Adistar killed [SPC*]kinji333. (M4)
+[2025-04-27 02:36:56] [Output] : * Yz|Cicada killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 02:37:11] [Output] : * Yz|rekethc killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:37:44] [Output] : VO>Rotta|DrUnK?: WHO WANNA PICK ME UP FOR 30k!???
+[2025-04-27 02:37:46] [Output] : * [SM]Killer|157 killed Yz|Adistar. (Sniper)
+[2025-04-27 02:37:48] [Output] : [spc]angelx: kys
+[2025-04-27 02:37:49] [Output] : * Yz|Noizi killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:38:00] [Output] : * Yz|Cicada killed [SPC]M8N|PC*. (Grenade)
+[2025-04-27 02:38:00] [Output] : * Yz|Cicada killed [spc]angelx. (Grenade)
+[2025-04-27 02:38:03] [Output] : Yz|rekethc: top 10 dinaz
+[2025-04-27 02:38:07] [Output] : [SWAT]Dinaz: thx bro
+[2025-04-27 02:38:31] [Output] : * Yz|Cicada killed [RAV]Winter. (Combat Shotgun)
+[2025-04-27 02:38:56] [Output] : * Yz|Filex killed [RAV]Yamal. (M4)
+[2025-04-27 02:39:06] [Output] : * [SPC]M8N|PC* killed [SWAT]DJO. (MP5)
+[2025-04-27 02:39:13] [Output] : * Yz|Adistar killed GetAway<ASAC>. (M4)
+[2025-04-27 02:39:36] [Output] : * Yz|Adistar killed [FBI]Limits. (M4)
+[2025-04-27 02:39:46] [Output] : * UE|Freezy|157 is now known as UE|Killer|157
+[2025-04-27 02:39:56] [Output] : * [B~B]Alexis is now known as O|Alexis
+[2025-04-27 02:39:57] [Output] : [RAV]Yamal: Ez adistar
+[2025-04-27 02:40:40] [Output] : (RADIO San Fierro) [SPC*]kinji333: JB, over.
+[2025-04-27 02:40:43] [Output] : * GA-123 killed [spc]angelx. (M4)
+[2025-04-27 02:40:45] [Output] : * GA-123 killed [SPC]M8N|PC*. (M4)
+[2025-04-27 02:40:46] [Output] : * GetAway<ASAC> killed GA-007. (Combat Shotgun)
+[2025-04-27 02:40:47] [Output] : * [SWAT]Mr.Xleepy killed GA-123. (Combat Shotgun)
+[2025-04-27 02:40:50] [Output] : * GetAway<ASAC> killed [SWAT]Mr.Xleepy. (Combat Shotgun)
+[2025-04-27 02:40:51] [Output] : * GetAway<ASAC> killed [RAV]Winter. (Combat Shotgun)
+[2025-04-27 02:40:52] [Output] : * [SWAT]DJO killed [RAV]LightSide. (Combat Shotgun)
+[2025-04-27 02:40:53] [Output] : * [SWAT]DJO killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:40:54] [Output] : * GetAway<ASAC> killed [FBI]Limits. (Combat Shotgun)
+[2025-04-27 02:40:55] [Output] : * GetAway<ASAC> killed [FBI]Genetrix. (Combat Shotgun)
+[2025-04-27 02:40:55] [Output] : * GetAway<ASAC> killed [SWAT]DJO. (Combat Shotgun)
+[2025-04-27 02:40:57] [Output] : * GA-007 is now known as FBI|Glayd
+[2025-04-27 02:40:58] [Output] : GetAway<ASAC>: ez
+[2025-04-27 02:41:05] [Output] : * GA-123 is now known as [SWAT]Flappy
+[2025-04-27 02:41:09] [Output] : [SWAT]Flappy: Noice
+[2025-04-27 02:41:12] [Output] : [SWAT]Flappy: noizi
+[2025-04-27 02:41:24] [Output] : * UE|Killer|157 killed [SPC]M8N|PC*. (M4)
+[2025-04-27 02:41:25] [Output] : O|Alexis: killer
+[2025-04-27 02:41:28] [Output] : [SM]Killer|157: hi
+[2025-04-27 02:41:33] [Output] : O|Alexis: I wanted to go play league
+[2025-04-27 02:41:33] [Output] : UE|Killer|157: hi
+[2025-04-27 02:41:38] [Output] : O|Alexis: but my boss is playingleague now
+[2025-04-27 02:41:43] [Output] : [SM]Killer|157: no way
+[2025-04-27 02:41:45] [Output] : * UE|W killed [SPC]M8N|PC*. (M4)
+[2025-04-27 02:41:46] [Output] : O|Alexis: and he is going to see that i am playing during work.
+[2025-04-27 02:41:55] [Output] : [SM]Killer|157: Get an alternative account
+[2025-04-27 02:41:57] [Output] : * Rebel|SWT[Sec] killed [SPC]M8N|PC*. (AK-47)
+[2025-04-27 02:42:05] [Output] : * Rebel|SWT[Sec] killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 02:42:07] [Output] : * [FBI]Limits killed GetAway<ASAC>. (Sniper)
+[2025-04-27 02:42:12] [Output] : O|Alexis: league should add invisible option
+[2025-04-27 02:42:21] [Output] : [SM]Killer|157: i guess so, i never tried it tbh
+[2025-04-27 02:42:23] [Output] : * UE|W killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 02:42:23] [Output] : * UE|Killer|157 killed [SPC]M8N|PC*. (Sniper)
+[2025-04-27 02:42:24] [Output] : * UE|Killer|157 killed [SWAT]Mr.Xleepy. (Sniper)
+[2025-04-27 02:42:25] [Output] : * [RAV]Yamal killed Yz|Noizi. (Nightstick)
+[2025-04-27 02:42:35] [Output] : [SPC*]kinji333: noizi hhh
+[2025-04-27 02:42:44] [Output] : * [SPC]M8N|PC* killed UE|Killer|157. (M4)
+[2025-04-27 02:43:03] [Output] : * UE|W killed [SWAT]Mr.Xleepy. (Combat Shotgun)
+[2025-04-27 02:43:11] [Output] : * GetAway<ASAC> died.
+[2025-04-27 02:43:29] [Output] : * Rebel|SWT[Sec] killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 02:43:32] [Output] : * UE|W killed [SPC]M8N|PC*. (Sniper)
+[2025-04-27 02:43:45] [Output] : * [SWAT]DJO killed [SWAT*]Nexroth. (Combat Shotgun)
+[2025-04-27 02:43:49] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (AK-47)
+[2025-04-27 02:44:22] [Output] : * [SPC]M8N|PC* died.
+[2025-04-27 02:44:37] [Output] : * [SWAT]Mr.Xleepy killed [SWAT]Flappy. (Rammed)
+[2025-04-27 02:44:38] [Output] : (RADIO Los Santos) [SPC*]kinji333: 2 in, over.
+[2025-04-27 02:44:48] [Output] : VO>Rotta|DrUnK?: bigup cleetus! 10'th DEGA!!!!!!!!!!!!
+[2025-04-27 02:44:51] [Output] : * [SM]Killer|157 died.
+[2025-04-27 02:45:04] [Output] : SAES>Jonas133: hi
+[2025-04-27 02:45:06] [Output] : Yz|Filex: hi
+[2025-04-27 02:45:14] [Output] : O|Alexis: hi
+[2025-04-27 02:45:17] [Output] : * [SPC]M8N|PC* killed UE|W. (M4)
+[2025-04-27 02:45:25] [Output] : * Yz|Filex killed [SM]Killer|157. (M4)
+[2025-04-27 02:45:47] [Output] : * [SPC*]kinji333 died.
+[2025-04-27 02:45:57] [Output] : [B~B]Mayhem: rf 2/3 lvap
+[2025-04-27 02:46:05] [Output] : * Yz|rekethc killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:46:12] [Output] : * [SWAT]DJO killed [SWAT*]Nexroth. (Sniper)
+[2025-04-27 02:47:04] [Output] : Yz|Noizi: a flappy
+[2025-04-27 02:47:17] [Output] : * Yz|Adistar killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:47:31] [Output] : [SWAT]Flappy: fuck you 
+[2025-04-27 02:47:40] [Output] : Yz|Noizi: bousli 9adhibi
+[2025-04-27 02:47:43] [Output] : Yz|Filex: flappy
+[2025-04-27 02:47:44] [Output] : Yz|Filex: host
+[2025-04-27 02:47:46] [Output] : * Yz|rekethc killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:47:55] [Output] : [SWAT]Mr.Xleepy: host Yz br flappy
+[2025-04-27 02:48:00] [Output] : Yz|Filex: kek
+[2025-04-27 02:48:01] [Output] : [SWAT]Dinaz: noizi
+[2025-04-27 02:48:04] [Output] : [SWAT]Dinaz: im gonna enjoy this
+[2025-04-27 02:48:07] [Output] : Yz|Noizi has been muted by [SWAT]Dinaz. (5 mins)
+[2025-04-27 02:48:10] [Output] : [SWAT]Flappy: still waiting for adistar to hand me the br manager
+[2025-04-27 02:48:18] [Output] : [B~B]Snoupa: its english
+[2025-04-27 02:48:24] [Output] : * Yz|Adistar killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:48:32] [Output] : GetAway<ASAC>: isnt it england?
+[2025-04-27 02:48:33] [Output] : GetAway<ASAC>: .-.
+[2025-04-27 02:49:33] [Output] : * UE|Killer|157 died.
+[2025-04-27 02:49:35] [Output] : * UE|W died.
+[2025-04-27 02:49:36] [Output] : * Yz|rekethc killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:50:08] [Output] : * [SWAT]DJO killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 02:50:13] [Output] : * [SPC]M8N|PC* killed [SWAT]DJO. (MP5)
+[2025-04-27 02:50:21] [Output] : * Yz|Filex killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:50:28] [Output] : * [B~B]Snoupa died.
+[2025-04-27 02:50:52] [Output] : * [SM]Killer|157 killed Yz|Filex. (M4)
+[2025-04-27 02:50:52] [Output] : * R|Brazz killed R|Stark. (Knife)
+[2025-04-27 02:50:55] [Output] : * Yz|rekethc killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:51:11] [Output] : * Yz|Cicada killed [RAV]Yamal. (M4)
+[2025-04-27 02:51:14] [Output] : * Yz|Noizi killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 02:51:26] [Output] : * Yz|Cicada killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:51:45] [Output] : * Yz|Adistar killed [RAV]Yamal. (M4)
+[2025-04-27 02:52:00] [Output] : * [SM]Killer|157 killed Yz|rekethc. (Sniper)
+[2025-04-27 02:52:04] [Output] : * Yz|Adistar killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:52:11] [Output] : * [RAV]Winter died.
+[2025-04-27 02:52:16] [Output] : VO>Rotta|DrUnK?: FORMULA DRIFT JAPAN LIVE ON YOUTUBE""" let GOOOO SAMMIT!!! 
+[2025-04-27 02:52:45] [Output] : * [SM]Killer|157 killed Yz|Filex. (Sniper)
+[2025-04-27 02:52:47] [Output] : * Yz|Cicada killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:53:07] [Output] : Yz|Noizi has been unmuted by Console.
+[2025-04-27 02:53:14] [Output] : * [B~B]Snoupa died.
+[2025-04-27 02:53:47] [Output] : * Yz|rekethc killed [SM]Killer|157. (Deagle)
+[2025-04-27 02:53:56] [Output] : * [RAV]Yamal killed Yz|Noizi. (M4)
+[2025-04-27 02:53:56] [Output] : * Yz|Adistar killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:54:15] [Output] : * UE|W killed UE|Killer|157. (Grenade)
+[2025-04-27 02:54:21] [Output] : * [SM]Killer|157 killed Yz|Adistar. (Sniper)
+[2025-04-27 02:54:36] [Output] : * Yz|rekethc killed [SM]Killer|157. (M4)
+[2025-04-27 02:54:37] [Output] : * [SWAT]Mr.Xleepy died.
+[2025-04-27 02:54:46] [Output] : * Yz|Noizi killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:55:17] [Output] : * Yz|rekethc killed [SM]Killer|157. (M4)
+[2025-04-27 02:55:32] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (Sniper)
+[2025-04-27 02:56:10] [Output] : [SWAT]Dinaz: welcome back bbg
+[2025-04-27 02:56:17] [Output] : * Yz|Adistar killed [SM]Killer|157. (Sniper)
+[2025-04-27 02:56:35] [Output] : * Yz|Adistar died.
+[2025-04-27 02:56:46] [Output] : * Yz|rekethc died.
+[2025-04-27 02:56:49] [Output] : * UE|W killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:57:06] [Output] : * Yz|rekethc killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 02:57:21] [Output] : Yz|Adistar: retard
+[2025-04-27 02:57:27] [Output] : [RAV]Yamal: Who ?
+[2025-04-27 02:57:31] [Output] : Yz|Adistar: you obviously
+[2025-04-27 02:57:31] [Output] : Yz|rekethc: retard
+[2025-04-27 02:57:38] [Output] : [SWAT]Flappy: anyone else warping ? 
+[2025-04-27 02:57:42] [Output] : * Yz|Noizi killed [SM]Killer|157. (M4)
+[2025-04-27 02:57:45] [Output] : [RAV]Yamal: No I arrested u so u can enjoy
+[2025-04-27 02:57:47] [Output] : Yz|Adistar: you started chasing before i even lost my immunity
+[2025-04-27 02:57:50] [Output] : Yz|Adistar: at hosp
+[2025-04-27 02:57:52] [Output] : Yz|Filex: adi  stop abusing the kid he is same age as ur son
+[2025-04-27 02:57:57] [Output] : [RAV]Yamal: No ur friend
+[2025-04-27 02:57:58] [Output] : [RAV]Yamal: Lost
+[2025-04-27 02:58:02] [Output] : VO>Rotta|DrUnK?: ican i be a retard?! how to join? 
+[2025-04-27 02:58:04] [Output] : Yz|rekethc: yea yea your mom lost
+[2025-04-27 02:58:05] [Output] : [RAV]Yamal: And Im going to ur friend
+[2025-04-27 02:58:09] [Output] : [RAV]Yamal: So u shoot me
+[2025-04-27 02:58:14] [Output] : [RAV]Yamal: With ur shotgun
+[2025-04-27 02:58:22] [Output] : [RAV]Yamal: And i go to u and arrest u
+[2025-04-27 02:58:31] [Output] : [RAV]Yamal: That's so simple my friend
+[2025-04-27 02:58:31] [Output] : [SWAT]Dinaz: why is ur name yamal
+[2025-04-27 02:58:32] [Output] : Yz|Adistar: My friend literally just spawned at hosp 
+[2025-04-27 02:58:39] [Output] : [SWAT]Dinaz: is ur idol at 19yo football player
+[2025-04-27 02:58:42] [Output] : Yz|Adistar: so he was immune too
+[2025-04-27 02:58:42] [Output] : * Yz|rekethc killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 02:58:49] [Output] : [SWAT]Flappy: Closing the warp
+[2025-04-27 02:58:49] [Output] : * Yz|Filex killed UE|Killer|157. (Sniper)
+[2025-04-27 02:58:51] [Output] : [RAV]Yamal: No Next time focus my man he is selling to u drugs
+[2025-04-27 02:58:57] [Output] : [RAV]Yamal: And he lost his shield
+[2025-04-27 02:59:25] [Output] : * [SM]Killer|157 killed [RAV]Yamal. (M4)
+[2025-04-27 02:59:26] [Output] : * [SM]Killer|157 killed Yz|rekethc. (M4)
+[2025-04-27 02:59:33] [Output] : * [SM]Killer|157 killed Yz|Filex. (M4)
+[2025-04-27 02:59:53] [Output] : (RADIO Las Venturas) FBI|Glayd: vip to lvpd, over.
+[2025-04-27 02:59:59] [Output] : (RADIO Las Venturas) FBI|Glayd: anyone coming?, over.
+[2025-04-27 03:00:12] [Output] : * [SM]Killer|157 killed Yz|rekethc. (M4)
+[2025-04-27 03:00:18] [Output] : * oL|2HRI4ZEN9 died.
+[2025-04-27 03:00:48] [Output] : * VO>Garcia killed [SPC]M8N|PC*. (Fist)
+[2025-04-27 03:00:50] [Output] : * VO>Garcia killed O|Mah_74|XOXO. (Fist)
+[2025-04-27 03:00:53] [Output] : * Yz|Cicada killed UE|W. (M4)
+[2025-04-27 03:00:56] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (Sniper)
+[2025-04-27 03:00:57] [Output] : [SWAT]Flappy: garcia wins
+[2025-04-27 03:00:58] [Output] : * [spc]angelx died.
+[2025-04-27 03:01:18] [Output] : [SWAT]Mr.Xleepy: pro
+[2025-04-27 03:01:19] [Output] : * Yz|Cicada killed Yz|rekethc. (Combat Shotgun)
+[2025-04-27 03:01:21] [Output] : O|Mah_74|XOXO: there is more?
+[2025-04-27 03:01:22] [Output] : * [SWAT*]Nexroth killed VO>Garcia. (Fist)
+[2025-04-27 03:01:25] [Output] : O|Mah_74|XOXO: events
+[2025-04-27 03:01:33] [Output] : * UE|Killer|157 is now known as UE|Freezy|157
+[2025-04-27 03:01:33] [Output] : VO>Garcia: ty king
+[2025-04-27 03:01:38] [Output] : * [SWAT*]Nexroth died.
+[2025-04-27 03:01:38] [Output] : * [SWAT]Mr.Xleepy died.
+[2025-04-27 03:01:53] [Output] : * UE|KardeL died.
+[2025-04-27 03:01:55] [Output] : * [spc]angelx died.
+[2025-04-27 03:02:16] [Output] : (RADIO Las Venturas) [SPC*]kinji333: JB, over.
+[2025-04-27 03:02:34] [Output] : * Yz|Cicada killed [RAV]Yamal. (Sniper)
+[2025-04-27 03:02:36] [Output] : * Yz|Noizi died.
+[2025-04-27 03:03:12] [Output] : * UE|Freezy|157 is now known as UE|Karbel
+[2025-04-27 03:03:15] [Output] : * UE|W killed [SPC]M8N|PC*. (Combat Shotgun)
+[2025-04-27 03:03:48] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (Sniper)
+[2025-04-27 03:04:09] [Output] : oL|2HRI4ZEN9: 2/3
+[2025-04-27 03:05:05] [Output] : A reported player, oL|Yello80s (makaveli696), has joined the game. Report ID : 9
+[2025-04-27 03:05:25] [Output] : * [SWAT]Flappy died.
+[2025-04-27 03:05:41] [Output] : (TEAM) [AA]Doom|DILDO: egyptian
+[2025-04-27 03:05:45] [Output] : (TEAM) [fbi]wegz: dog cronk
+[2025-04-27 03:05:48] [Output] : (TEAM) [fbi]wegz: gz incoming
+[2025-04-27 03:05:58] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (Combat Shotgun)
+[2025-04-27 03:06:11] [Output] : * [SM]Killer|157 killed Yz|rekethc. (Sniper)
+[2025-04-27 03:06:15] [Output] : * [SM]Killer|157 killed Yz|Adistar. (Sniper)
+[2025-04-27 03:06:15] [Output] : (TEAM) [AA]Doom|DILDO: gz
+[2025-04-27 03:06:19] [Output] : * [SM]Killer|157 killed Yz|Filex. (Sniper)
+[2025-04-27 03:06:27] [Output] : Yz|Filex: killer4DE
+[2025-04-27 03:06:39] [Output] : [SWAT]Dinaz: ++
+[2025-04-27 03:06:40] [Output] : [SM]Killer|157: mashallah
+[2025-04-27 03:06:50] [Output] : * [AA]Doom|DILDO killed [fbi]wegz. (Rocket)
+[2025-04-27 03:06:52] [Output] : [SWAT]Dinaz: nice afk turf yakuza
+[2025-04-27 03:06:58] [Output] : Yz|rekethc: shutyour mom
+[2025-04-27 03:07:03] [Output] : [SWAT*]Nexroth: who wantss 1m
+[2025-04-27 03:07:05] [Output] : [SPC]1446: le
+[2025-04-27 03:07:06] [Output] : [SPC]1446: me
+[2025-04-27 03:07:06] [Output] : Yz|Noizi: me
+[2025-04-27 03:07:12] [Output] : [SWAT*]Nexroth: come to event 
+[2025-04-27 03:07:14] [Output] : * UE|Karbel killed [SPC*]kinji333. (Combat Shotgun)
+[2025-04-27 03:07:14] [Output] : [SPC]M8N|PC*: cum to event
+[2025-04-27 03:07:24] [Output] : [SPC]1446: if i join event i get 1m?
+[2025-04-27 03:07:25] [Output] : * [SM]Bosnian|Z killed Yz|Filex. (Grenade)
+[2025-04-27 03:07:27] [Output] : [SPC]1446: for participation?
+[2025-04-27 03:07:27] [Output] : * [SM]Bosnian|Z killed Yz|rekethc. (Sniper)
+[2025-04-27 03:07:37] [Output] : * Yz|Noizi killed [SM]Killer|157. (Sniper)
+[2025-04-27 03:07:39] [Output] : * UE|Karbel is now known as UE|Freezy|157
+[2025-04-27 03:08:17] [Output] : * [RAV]Yamal killed Yz|Adistar. (Combat Shotgun)
+[2025-04-27 03:08:18] [Output] : * Yz|Noizi killed [RAV]Yamal. (M4)
+[2025-04-27 03:08:26] [Output] : * [SM]Bosnian|Z killed Rebel|SWT[Sec]. (Sniper)
+[2025-04-27 03:08:28] [Output] : * [SM]Bosnian|Z killed Yz|Noizi. (Sniper)
+[2025-04-27 03:08:34] [Output] : * Yz|Cicada killed [SM]Bosnian|Z. (Grenade)
+[2025-04-27 03:08:35] [Output] : [AA]Doom|DILDO: ?
+[2025-04-27 03:08:50] [Output] : * Yz|rekethc killed [SM]Killer|157. (Combat Shotgun)
+[2025-04-27 03:08:53] [Output] : [SWAT]Mr.Xleepy: freezy
+[2025-04-27 03:09:04] [Output] : UE|Freezy|157: no talk my name u coward
+[2025-04-27 03:09:11] [Output] : [SWAT]Mr.Xleepy: come event retard
+[2025-04-27 03:09:12] [Output] : [SWAT]Flappy: Anyone else ?
+[2025-04-27 03:09:21] [Output] : [SWAT]Mr.Xleepy: or i call samuel
+[2025-04-27 03:09:28] [Output] : UE|Freezy|157: 90 sec
+[2025-04-27 03:09:29] [Output] : (TEAM) [SWAT]Doom: free event
+[2025-04-27 03:09:30] [Output] : (TEAM) [SWAT]Doom: JAJAJA
+[2025-04-27 03:09:33] [Output] : [SWAT]Mr.Xleepy: kkk
+[2025-04-27 03:09:35] [Output] : (TEAM) [fbi]wegz: kkk
+[2025-04-27 03:09:36] [Output] : (TEAM) [AA]Doom|DILDO: I was about to bomb strong
+[2025-04-27 03:09:38] [Output] : (TEAM) [AA]Doom|DILDO: because of you wegz
+[2025-04-27 03:09:41] [Output] : (TEAM) [fbi]wegz: LOL
+[2025-04-27 03:09:43] [Output] : (TEAM) [fbi]wegz: SSed
+[2025-04-27 03:09:44] [Output] : UE|Freezy|157: wait me
+[2025-04-27 03:09:49] [Output] : (TEAM) [AA]Doom|DILDO: no i didnt touch strong
+[2025-04-27 03:09:51] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (Sniper)
+[2025-04-27 03:09:52] [Output] : * Yz|rekethc killed [SM]Killer|157. (Sniper)
+[2025-04-27 03:09:52] [Output] : (TEAM) [AA]Doom|DILDO: too much aura
+[2025-04-27 03:09:53] [Output] : * [SM]Bosnian|Z killed Yz|Noizi. (Combat Shotgun)
+[2025-04-27 03:09:53] [Output] : (TEAM) [fbi]wegz: I will kill him and tell him it was u
+[2025-04-27 03:09:54] [Output] : [B~B]Mayhem: dimarco
+[2025-04-27 03:09:56] [Output] : [RAV]Yamal: Yes
+[2025-04-27 03:09:58] [Output] : (TEAM) [AA]Doom|DILDO: logs
+[2025-04-27 03:09:58] [Output] : [B~B]Mayhem: please not my racers bro..
+[2025-04-27 03:10:05] [Output] : [RAV]Yamal: Ok bro for u
+[2025-04-27 03:10:09] [Output] : [B~B]Mayhem: love you bro
+[2025-04-27 03:10:10] [Output] : (TEAM) [fbi]wegz: I'll say u renamed urself wegz for it
+[2025-04-27 03:10:14] [Output] : (TEAM) [AA]Doom|DILDO: ?
+[2025-04-27 03:10:17] [Output] : (TEAM) [AA]Doom|DILDO: also logs
+[2025-04-27 03:10:18] [Output] : (TEAM) [AA]Doom|DILDO: retard
+[2025-04-27 03:10:21] [Output] : (TEAM) [fbi]wegz: I got u from all corners
+[2025-04-27 03:10:22] [Output] : UE|Freezy|157: :rainbow:
+[2025-04-27 03:10:22] [Output] : [SWAT]Doom: buying prop very cloose to jb
+[2025-04-27 03:10:23] [Output] : (TEAM) [fbi]wegz: surrender
+[2025-04-27 03:10:26] [Output] : * Yz|Cicada killed [SM]Bosnian|Z. (Grenade)
+[2025-04-27 03:10:34] [Output] : (TEAM) [AA]Doom|DILDO: my name is doom
+[2025-04-27 03:10:34] [Output] : (TEAM) [fbi]wegz: wha happened to ur jb prop doom
+[2025-04-27 03:10:34] [Output] : * UE|W is now known as SM|W
+[2025-04-27 03:10:41] [Output] : [SWAT]Flappy: Closing the warp
+[2025-04-27 03:10:42] [Output] : (TEAM) [AA]Doom|DILDO: i sold it to jews
+[2025-04-27 03:10:43] [Output] : (TEAM) [SWAT]Doom: need anothetr one bro
+[2025-04-27 03:10:44] [Output] : [SPC*]kinji333: velo have one doom
+[2025-04-27 03:10:45] [Output] : (TEAM) [fbi]wegz: ripppppppppp
+[2025-04-27 03:10:48] [Output] : UE|Freezy|157: wait 15 sec
+[2025-04-27 03:10:49] [Output] : [SPC*]kinji333: go buy it
+[2025-04-27 03:10:49] [Output] : [SWAT]Mr.Xleepy: retard freezy
+[2025-04-27 03:11:01] [Output] : * Yz|Adistar killed SM|W. (Combat Shotgun)
+[2025-04-27 03:11:06] [Output] : UE|Freezy|157: open 
+[2025-04-27 03:11:08] [Output] : UE|Freezy|157: ...
+[2025-04-27 03:11:14] [Output] : * [SPC]M8N|PC* killed O|Mah_74|XOXO. (Fist)
+[2025-04-27 03:11:17] [Output] : [SWAT]Flappy: Doom wins
+[2025-04-27 03:11:21] [Output] : * [fbi]wegz killed UE|KardeL. (Fist)
+[2025-04-27 03:11:23] [Output] : UE|Freezy|157: rigged
+[2025-04-27 03:11:23] [Output] : [SPC]1446: gz
+[2025-04-27 03:11:28] [Output] : * [SPC]M8N|PC* killed [SPC*]kinji333. (Fist)
+[2025-04-27 03:11:28] [Output] : * Rebel|SWT[Sec] killed [RAV]Yamal. (Sniper)
+[2025-04-27 03:11:31] [Output] : * O|Mah_74|XOXO died.
+[2025-04-27 03:11:35] [Output] : * [fbi]wegz died.
+[2025-04-27 03:11:35] [Output] : * [SWAT]Doom died.
+[2025-04-27 03:11:35] [Output] : * [SPC]M8N|PC* died.
+[2025-04-27 03:11:35] [Output] : * [SWAT*]Nexroth died.
+[2025-04-27 03:11:35] [Output] : * [SWAT]Mr.Xleepy died.
+[2025-04-27 03:11:37] [Output] : [AA]Doom|DILDO: ty
+[2025-04-27 03:11:43] [Output] : * Yz|Cicada killed [SM]Killer|157. (Sniper)
+[2025-04-27 03:11:49] [Output] : [SWAT]Flappy: Ignore
+[2025-04-27 03:11:54] [Output] : * [SM]Bosnian|Z killed Yz|Cicada. (Grenade)
+[2025-04-27 03:12:06] [Output] : VO>Garcia: gn
