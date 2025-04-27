@@ -253,7 +253,8 @@ client.on('messageCreate', async (message) => {
         { value: '`!om <organization name>` Find online players by organization name' },
         { value: '`!rav` Access RAV media archive' },
         { value: '`!uploadkd` Upload console log and calculate KD' },
-        { value: '`!postmedia` Post a media post (requires role)' }
+        { value: '`!postmedia` Post a media post (requires role)' },
+        { value: '`!startkd` to check your K/D' }
       )
       .setFooter({ text: 'Made by Lking Strong ✨' })
       .setTimestamp();
