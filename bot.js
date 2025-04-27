@@ -250,12 +250,11 @@ client.on('messageCreate', async (message) => {
         .setColor('#A2C6CA')
         .setTitle('Bot Commands Help')
         .addFields(
-            {name: '', value: '`!op` Displays all currently online players' },
-            {name: '',value: '`!om <organization name>` Find online players by organization name' },
-            {name: '', value: '`!rav` Access RAV media archive' },
-            {name: '', value: '`!postmedia` Post a media post (requires role)' },
-            {name: '', value: '`!startkd` to check your K/D' },
-            {name: '', value: '`!stopkd` to stop checking your K/D' }
+            {name: '', value: '`!op` to display all current online players' },
+            {name: '',value: '`!om <organization name>` to check online players by organization name' },
+            {name: '', value: '`!rav` to view RAV media archive' },
+            {name: '', value: '`!postmedia` to do a media archive post from discord (requires DAGGER+ role)' },
+            {name: '', value: '`!startkd` to check your K/D' }
         )
         .setFooter({ text: 'Made by Lking Strong ✨' })
         .setTimestamp();
