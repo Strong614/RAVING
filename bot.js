@@ -253,9 +253,9 @@ client.on('messageCreate', async (message) => {
             {name: '', value: '`!op` Displays all currently online players' },
             {name: '',value: '`!om <organization name>` Find online players by organization name' },
             {name: '', value: '`!rav` Access RAV media archive' },
-            {name: '',value: '`!uploadkd` Upload console log and calculate KD' },
             {name: '', value: '`!postmedia` Post a media post (requires role)' },
-            {name: '', value: '`!startkd` to check your K/D' }
+            {name: '', value: '`!startkd` to check your K/D' },
+            {name: '', value: '`!stopkd` to stop checking your K/D' }
         )
         .setFooter({ text: 'Made by Lking Strong ✨' })
         .setTimestamp();

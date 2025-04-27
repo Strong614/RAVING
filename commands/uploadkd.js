@@ -40,7 +40,7 @@ module.exports = {
         const stats = parseLog(logContent);
 
         // Start listening for player name inputs
-        message.reply('Log parsing completed. Enter a player name to track their kills and deaths. Type `!stopkd` to stop.');
+        message.reply('Log parsing completed. Enter a player name to track their K/D. Type `!stopkd` to stop.');
 
         // Create a filter to listen for player names or the stop command
         const playerFilter = (m) => m.author.id === message.author.id;
@@ -54,7 +54,7 @@ module.exports = {
 
             if (playerName.toLowerCase() === '!stopkd') {
               uploadKDActive = false;
-              message.reply('The `uploadKD` command has been deactivated.');
+              message.reply('The `!showkd` command has been deactivated.');
               break;
             }
 
