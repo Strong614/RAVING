@@ -244,23 +244,25 @@ client.on('messageCreate', async (message) => {
 
   // !help command
   if (command === 'help') {
+    console.log('Help command triggered'); // Add this log
     const helpEmbed = new EmbedBuilder()
-      .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
-      .setColor('#A2C6CA')
-      .setTitle('Bot Commands Help')
-      .addFields(
-        { value: '`!op` Displays all currently online players' },
-        { value: '`!om <organization name>` Find online players by organization name' },
-        { value: '`!rav` Access RAV media archive' },
-        { value: '`!uploadkd` Upload console log and calculate KD' },
-        { value: '`!postmedia` Post a media post (requires role)' },
-        { value: '`!startkd` to check your K/D' }
-      )
-      .setFooter({ text: 'Made by Lking Strong ✨' })
-      .setTimestamp();
+        .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
+        .setColor('#A2C6CA')
+        .setTitle('Bot Commands Help')
+        .addFields(
+            {name: '', value: '`!op` Displays all currently online players' },
+            {name: '',value: '`!om <organization name>` Find online players by organization name' },
+            {name: '', value: '`!rav` Access RAV media archive' },
+            {name: '',value: '`!uploadkd` Upload console log and calculate KD' },
+            {name: '', value: '`!postmedia` Post a media post (requires role)' },
+            {name: '', value: '`!startkd` to check your K/D' }
+        )
+        .setFooter({ text: 'Made by Lking Strong ✨' })
+        .setTimestamp();
 
     message.channel.send({ embeds: [helpEmbed] });
-  }
+}
+
 
   // !rav command
   if (command === 'rav') {
