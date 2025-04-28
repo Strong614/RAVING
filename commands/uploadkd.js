@@ -10,7 +10,7 @@ module.exports = {
   },
   async execute(message, args, client) {
     if (uploadKDActive) {
-      return message.reply("showkd command is already active. Please input player names or use `!stopkd` to deactivate.");
+      return message.reply("startkd command is already active. Please input player names or use `!stopkd` to deactivate.");
     }
 
     uploadKDActive = true; // Activate the command
@@ -54,7 +54,7 @@ module.exports = {
 
             if (playerName.toLowerCase() === '!stopkd') {
               uploadKDActive = false;
-              message.reply('The `!showkd` command has been deactivated.');
+              message.reply('The `!startkd` command has been deactivated.');
               break;
             }
 
