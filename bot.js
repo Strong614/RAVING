@@ -273,6 +273,16 @@ client.on('messageCreate', async (message) => {
       message.reply('❌ There was an error trying to run the !rav command.');
     }
   }
+ // !log command
+  if (command === 'log') {
+    try {
+      const logCommand = require('./commands/log');
+      await logCommand.execute(message, args);
+    } catch (error) {
+      console.error('Error executing !log:', error);
+      message.reply('❌ There was an error trying to run the !log command.');
+    }
+  }
 
   // !uploadkd command
   if (command === 'startkd') {
