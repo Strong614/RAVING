@@ -10,7 +10,8 @@ module.exports = {
     const textToLog = args.join(' ');
 
     const logEmbed = new EmbedBuilder()
-      .setColor(0x00AE86)
+        .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
+        .setColor('#A2C6CA')
       .setTitle('Logged Message')
       .setDescription(textToLog)
       .setFooter({ text: `Logged by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
