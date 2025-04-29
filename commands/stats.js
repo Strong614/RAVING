@@ -19,6 +19,8 @@ async function getPlayerStats(playerName) {
   const page = await browser.newPage();
   await page.goto('https://web.saesrpg.uk', { waitUntil: 'networkidle2' });
 
+  // Ensure the login form is loaded before interacting with it
+  await page.waitForSelector('input[placeholder="Username"]', { timeout: 20000 });
   await page.type('input[placeholder="Username"]', saesUsername);
   await page.type('input[placeholder="Password"]', saesPassword);
 
@@ -28,6 +30,8 @@ async function getPlayerStats(playerName) {
   ]);
 
   console.log(`✅ Logged in as ${saesUsername}!`);
+
+  // Wait for the search input to load and be interactable
   await page.waitForSelector('input[name="username"]', { timeout: 20000 });
   console.log('✅ Login confirmed and search input found!');
 
@@ -39,6 +43,7 @@ async function getPlayerStats(playerName) {
   console.log(`✅ Typed player name and pressed Enter: ${playerName}`);
   const previousTableHTML = await page.$eval('tbody', el => el.innerHTML);
 
+  // Wait for the table to update, confirming that the stats are fetched
   await page.waitForFunction(
     (oldHTML) => {
       const table = document.querySelector('tbody');
@@ -50,6 +55,7 @@ async function getPlayerStats(playerName) {
 
   console.log(`✅ Stats table updated for ${playerName}!`);
 
+  // Scrape the stats data from the page
   const stats = await page.evaluate(() => {
     const rows = Array.from(document.querySelectorAll('tbody tr.stat-row'));
     const statsData = {};
@@ -66,6 +72,7 @@ async function getPlayerStats(playerName) {
   console.log('Fetched stats:', stats);
   await browser.close();
 
+  // Define the list of all stats you're interested in
   const allStats = [
     'Casino Profit', 'Casino Gambled', 'Casino Loss', 'Arms Dealer Profit',
     'Bribing Profit', 'Kills', 'Turfs Taken', 'Drug Dealer Profit', 'Medic Profit',
@@ -117,7 +124,6 @@ module.exports = {
           .setFooter({ text: 'Made by Lking Strong 👑' })
           .setTimestamp();
           
-      
         const pageStats = statsEntries.slice(pageIndex * pageLimit, (pageIndex + 1) * pageLimit);
         pageStats.forEach(([statName, statValue]) => {
           let displayName = statName;
@@ -133,7 +139,7 @@ module.exports = {
       
         return embed;
       };
-      
+
       const embed = createEmbed(page);
 
       const row = new ActionRowBuilder().addComponents(
