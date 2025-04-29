@@ -282,6 +282,18 @@ client.on('messageCreate', async (message) => {
     }
   }
 
+  //chat command 
+  if (command === 'chat') {
+    try {
+      const { handleChat } = require('./commands/chat'); // Import the handleChat function from chat.js
+      await handleChat(message); // Call handleChat function for the !chat command
+    } catch (error) {
+      console.error('Error executing !chat:', error);
+      message.reply('❌ There was an error trying to run the !chat command.');
+    }
+  }
+
+
   // !uploadkd command
   if (command === 'startkd') {
     try {
