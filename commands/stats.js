@@ -97,20 +97,22 @@ async function getPlayerStats(playerName) {
 module.exports = {
   execute: async (message, args) => {
     const player = args.join(' ').trim();
-
+  
     if (!player) return message.reply('❌ Please specify a player name!');
     if (player.toLowerCase() === saesUsername?.toLowerCase())
       return message.reply(`❌ You cannot fetch stats for yourself!`);
-
+  
     try {
       await message.channel.sendTyping();
+      const fetchingMessage = await message.reply(`🔄 Fetching stats for **${player}**...`);
+  
       const stats = await getPlayerStats(player);
-
+  
       const statsEntries = Object.entries(stats);
       const pageLimit = 15;
       const pages = Math.ceil(statsEntries.length / pageLimit);
       let page = 0;
-
+  
       const createEmbed = (pageIndex) => {
         const embed = new EmbedBuilder()
           .setTitle(`📈 ${player}'s Stats (Page ${pageIndex + 1}/${pages})`)
@@ -118,7 +120,7 @@ module.exports = {
           .setColor('#A2C6CA')
           .setFooter({ text: 'Made by Lking Strong 👑' })
           .setTimestamp();
-
+  
         const pageStats = statsEntries.slice(pageIndex * pageLimit, (pageIndex + 1) * pageLimit);
         pageStats.forEach(([name, value]) => {
           let display = name;
@@ -126,10 +128,10 @@ module.exports = {
           if (name === 'Arrests') display = `🟢 ${name}`;
           embed.addFields({ name: display, value, inline: true });
         });
-
+  
         return embed;
       };
-
+  
       const embed = createEmbed(page);
       const row = () =>
         new ActionRowBuilder().addComponents(
@@ -144,24 +146,24 @@ module.exports = {
             .setStyle(ButtonStyle.Secondary)
             .setDisabled(page === pages - 1)
         );
-
-      const sentMessage = await message.reply({ embeds: [embed], components: [row()] });
-
-      const collector = sentMessage.createMessageComponentCollector({
+  
+      await fetchingMessage.edit({ content: '', embeds: [embed], components: [row()] });
+  
+      const collector = fetchingMessage.createMessageComponentCollector({
         filter: (i) => i.user.id === message.author.id,
         time: 60000,
       });
-
+  
       collector.on('collect', async (interaction) => {
         if (interaction.customId === 'next' && page < pages - 1) page++;
         else if (interaction.customId === 'prev' && page > 0) page--;
-
+  
         await interaction.update({
           embeds: [createEmbed(page)],
           components: [row()],
         });
       });
-
+  
       collector.on('end', async () => {
         const disabledRow = new ActionRowBuilder().addComponents(
           new ButtonBuilder()
@@ -175,12 +177,12 @@ module.exports = {
             .setStyle(ButtonStyle.Secondary)
             .setDisabled(true)
         );
-
-        await sentMessage.edit({ components: [disabledRow] });
+  
+        await fetchingMessage.edit({ components: [disabledRow] });
       });
     } catch (error) {
       console.error('❌ Error:', error);
       message.reply('❌ Failed to fetch stats. Make sure the player exists and try again later.');
     }
-  }
+  }  
 };
