@@ -20,12 +20,12 @@ async function getPlayerStats(playerName) {
   await page.goto('https://web.saesrpg.uk', { waitUntil: 'networkidle2' });
 
     // Wait for the login inputs to be present
-  await page.waitForSelector('input[placeholder="Username"]', { timeout: 30000 });
-  await page.waitForSelector('input[placeholder="Password"]', { timeout: 30000 });
+  await page.waitForSelector('input[placeholder="Username"]', { timeout: 10000 });
+  await page.waitForSelector('input[placeholder="Password"]', { timeout: 10000 });
 
   // Now type credentials
-  await page.type('input[placeholder="Username"]', saesUsername, { delay: 100 });
-  await page.type('input[placeholder="Password"]', saesPassword, { delay: 100 });
+  await page.type('input[placeholder="Username"]', saesUsername, { delay: 50 });
+  await page.type('input[placeholder="Password"]', saesPassword, { delay: 50 });
 
   await Promise.all([
     page.click('button[type="submit"]'),
