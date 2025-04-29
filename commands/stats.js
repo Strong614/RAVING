@@ -92,12 +92,12 @@ module.exports = {
   execute: async (message, args) => {
     const player = args.join(' ').trim();
 
-    if (player.toLowerCase() === saesUsername.toLowerCase()) {
-      return message.reply(`❌ You cannot fetch stats for yourself!`);
-    }
-
     if (!player) {
       return message.reply('❌ Please specify a player name!');
+    }
+
+    if (player.toLowerCase() === saesUsername?.toLowerCase()) {
+      return message.reply(`❌ You cannot fetch stats for yourself!`);
     }
 
     console.log(`Fetching stats for: ${player}`);
