@@ -1,7 +1,8 @@
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType, ModalBuilder, TextInputBuilder, TextInputStyle, InteractionType } = require('discord.js');
+const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 
 module.exports = {
   async execute(message, args) {
+    console.log('Log command is being executed');
     if (!args.length) {
       return message.reply('❌ Please provide text to log.');
     }
@@ -15,7 +16,8 @@ module.exports = {
       .setFooter({ text: `Logged by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
       .setTimestamp();
 
-    const buttons = new ActionRowBuilder()
+    // Build buttons for RAV HQ role
+    const row = new ActionRowBuilder()
       .addComponents(
         new ButtonBuilder()
           .setCustomId('edit_log')
@@ -27,63 +29,70 @@ module.exports = {
           .setStyle(ButtonStyle.Danger),
       );
 
-    const sentMessage = await message.channel.send({ embeds: [logEmbed], components: [buttons] });
+    // Send the embed WITH buttons
+    const sentMessage = await message.channel.send({ embeds: [logEmbed], components: [row] });
 
-    await message.delete().catch(error => {
-      console.error('Failed to delete the original message:', error);
-    });
+    // Then delete the original message
+    if (message.deletable) {
+      await message.delete().catch(() => {});
+    }
 
-    // Create a collector for button clicks
-    const collector = sentMessage.createMessageComponentCollector({ componentType: ComponentType.Button, time: 10 * 60 * 1000 }); // 10 min timeout
+    // Handle interaction for edit/delete
+    const collector = sentMessage.createMessageComponentCollector({ time: 600_000 }); // 10 minutes
 
     collector.on('collect', async interaction => {
-      // Check if the user has the RAV HQ role
-      const ravHqRole = interaction.guild.roles.cache.find(role => role.name === 'RAV HQ');
-      if (!ravHqRole || !interaction.member.roles.cache.has(ravHqRole.id)) {
+      if (!interaction.member.roles.cache.some(role => role.name === 'RAV HQ')) {
         return interaction.reply({ content: '❌ You do not have permission to use this.', ephemeral: true });
       }
 
-      if (interaction.customId === 'delete_log') {
-        await sentMessage.delete().catch(console.error);
-      } else if (interaction.customId === 'edit_log') {
-        // Show a modal to edit
-        const modal = new ModalBuilder()
-          .setCustomId('editLogModal')
-          .setTitle('Edit Logged Message');
-
-        const textInput = new TextInputBuilder()
-          .setCustomId('newLogText')
-          .setLabel('New Text')
-          .setStyle(TextInputStyle.Paragraph)
-          .setRequired(true)
-          .setValue(logEmbed.data.description.slice(0, 1024)); // Prefill current text
-
-        const modalRow = new ActionRowBuilder().addComponents(textInput);
-
-        modal.addComponents(modalRow);
-
-        await interaction.showModal(modal);
+      if (interaction.customId === 'edit_log') {
+        await interaction.showModal({
+          custom_id: 'edit_modal',
+          title: 'Edit Log',
+          components: [
+            {
+              type: 1,
+              components: [
+                {
+                  type: 4,
+                  custom_id: 'edit_input',
+                  style: 2, // Paragraph
+                  label: 'New Log Message',
+                  required: true,
+                },
+              ],
+            },
+          ],
+        });
+      } else if (interaction.customId === 'delete_log') {
+        await sentMessage.delete();
       }
-    });
-
-    // Listen for modal submit
-    message.client.on('interactionCreate', async modalInteraction => {
-      if (!modalInteraction.isModalSubmit()) return;
-      if (modalInteraction.customId !== 'editLogModal') return;
-
-      const ravHqRole = modalInteraction.guild.roles.cache.find(role => role.name === 'RAV HQ');
-      if (!ravHqRole || !modalInteraction.member.roles.cache.has(ravHqRole.id)) {
-        return modalInteraction.reply({ content: '❌ You do not have permission to edit.', ephemeral: true });
-      }
-
-      const newText = modalInteraction.fields.getTextInputValue('newLogText');
-
-      const updatedEmbed = EmbedBuilder.from(logEmbed).setDescription(newText).setTimestamp(new Date());
-
-      await sentMessage.edit({ embeds: [updatedEmbed] });
-
-      await modalInteraction.reply({ content: '✅ Log updated successfully!', ephemeral: true });
     });
   },
 };
+
+// Separate file or bot initialization code
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent],
+});
+
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+});
+
+// Register the modal interaction handler globally
+client.on('interactionCreate', async (interaction) => {
+  if (!interaction.isModalSubmit()) return;
+  if (interaction.customId !== 'edit_modal') return;
+
+  const newContent = interaction.fields.getTextInputValue('edit_input');
+  const message = await interaction.channel.messages.fetch(interaction.message.id); // Fetch the original message
+
+  const editedEmbed = EmbedBuilder.from(message.embeds[0]) // Edit the existing embed
+    .setDescription(newContent);
+
+  await message.edit({ embeds: [editedEmbed] });
+  await interaction.reply({ content: '✅ Log edited successfully.', ephemeral: true });
+});
 

@@ -2,8 +2,6 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, Events, ComponentType } = require('discord.js');
-const uploadKDCommand = require('./commands/uploadkd');
-const forumCommand = require('./commands/forum');
 require('dotenv').config(); // Load .env
 
 // Create a Discord bot client
@@ -277,7 +275,7 @@ client.on('messageCreate', async (message) => {
   if (command === 'log') {
     try {
       const logCommand = require('./commands/log');
-      await logCommand.execute(message, args);
+      await logCommand.execute(message, args); // ONLY ONCE
     } catch (error) {
       console.error('Error executing !log:', error);
       message.reply('❌ There was an error trying to run the !log command.');
@@ -287,6 +285,7 @@ client.on('messageCreate', async (message) => {
   // !uploadkd command
   if (command === 'startkd') {
     try {
+      const uploadKDCommand = require('./commands/uploadkd')
       await uploadKDCommand.execute(message, args, client);
     } catch (error) {
       console.error('Error executing !startkd:', error);
@@ -296,6 +295,7 @@ client.on('messageCreate', async (message) => {
 
   // !postmedia command
   if (command === 'postmedia') {
+    const forumCommand = require('./commands/forum');
     const memberRoles = message.member.roles.cache;
     const hasAllowedRole = allowedRoles.some(roleId => memberRoles.has(roleId));
 
