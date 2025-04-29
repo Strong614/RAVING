@@ -30,7 +30,7 @@ RUN wget https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114
 
 # Copy Node.js dependencies and install
 COPY package*.json ./
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 # Copy Python requirements and install
 COPY requirements.txt ./
