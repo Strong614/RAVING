@@ -252,9 +252,11 @@ client.on('messageCreate', async (message) => {
             {name: '',value: '`!om <organization name>` to check online players by organization name' },
             {name: '', value: '`!rav` to view RAV media archive' },
             {name: '', value: '`!postmedia` to do a media archive post from discord (requires DAGGER+ role)' },
-            {name: '', value: '`!startkd` to check your K/D' }
+            {name: '', value: '`!startkd` to check your K/D' },
+            {name: '', value: '`!stats <username>` to check stats' },
+            {name: '', value: '`!chat` to talk to an AI chatbot' }
         )
-        .setFooter({ text: 'Made by Lking Strong ✨' })
+        .setFooter({ text: 'Made by Lking Strong 👑' })
         .setTimestamp();
 
     message.channel.send({ embeds: [helpEmbed] });
@@ -282,6 +284,18 @@ client.on('messageCreate', async (message) => {
     }
   }
 
+  const statsCommand = require('./commands/stats'); // Importing stats.js
+
+  // Inside message handling
+  if (command === 'stats') {
+    try {
+      await statsCommand.execute(message, args); // Call the execute function
+    } catch (error) {
+      console.error('Error executing !stats:', error);
+      message.reply('❌ There was an error trying to execute the !stats command.');
+    }
+  }
+  
   //chat command 
   if (command === 'chat') {
     try {

@@ -117,6 +117,7 @@ module.exports = {
             value: `👤 Poster: ${post.poster}\n📅 Date: ${post.date || 'N/A'}\n🧑‍🤝‍🧑 Participants: ${post.participants.length ? post.participants.join(', ') : 'N/A'}\n🔗 [View Post](${post.postUrl})`,
             inline: false
           })))
+          .setFooter({ text: 'Made by Lking Strong 👑' })
           .setTimestamp();
 
         return embed;

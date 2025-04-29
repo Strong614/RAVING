@@ -15,6 +15,7 @@ module.exports = {
       .setTitle('Logged Message')
       .setDescription(textToLog)
       .setFooter({ text: `Logged by ${message.author.tag}`, iconURL: message.author.displayAvatarURL() })
+      .setFooter({ text: 'Made by Lking Strong 👑' })
       .setTimestamp();
 
     // Build buttons for RAV HQ role
