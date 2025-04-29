@@ -273,6 +273,18 @@ client.on('messageCreate', async (message) => {
       message.reply('❌ There was an error trying to run the !rav command.');
     }
   }
+
+  // !ravmonthly command 
+  if (command === 'ravmonthly') {
+    try {
+      const ravMonthlyCommand = require('./commands/ravmonthly');
+      await ravMonthlyCommand.execute(message, args);
+    } catch (error) {
+      console.error('Error executing !ravmonthly:', error);
+      message.reply('❌ There was an error trying to run the !ravmonthly command.');
+    }
+  }
+  
  // !log command
   if (command === 'log') {
     try {
