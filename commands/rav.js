@@ -108,7 +108,7 @@ module.exports = {
       const createEmbed = (pageIndex) => {
         const posts = allPosts.slice(pageIndex * maxPostsPerPage, (pageIndex + 1) * maxPostsPerPage);
         const embed = new EmbedBuilder()
-          .setThumbnail('https://imgur.com/WLAHrWE')
+          .setThumbnail('https://i.imgur.com/WLAHrWE.png')
           .setTitle(`📘 RAV Archive Summary`)
           .setColor('#A2C6CA')
           .setDescription(`Total Posts: ${allPosts.length} | Page ${pageIndex + 1}${filterType ? ` | Type: ${filterType}` : ''}${posterFilter ? ` | Poster: ${posterFilter}` : ''}`)

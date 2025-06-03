@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { AttachmentBuilder } = require('discord.js');
 const cheerio = require('cheerio');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
@@ -22,11 +23,9 @@ const MONTHS = {
 function parseDateFromText(dateStr) {
   const match = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
   if (!match) return null;
-
   const [_, day, month, yearPart] = match;
   const year = yearPart.length === 2 ? '20' + yearPart : yearPart;
   const isoDateStr = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-
   const date = new Date(isoDateStr);
   return isNaN(date.getTime()) ? null : date;
 }
@@ -56,13 +55,20 @@ module.exports = {
       });
 
       const page = await browser.newPage();
-      await page.setUserAgent(
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'
-      );
-      await page.setViewport({ width: 1280, height: 800 });
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36');
 
+      // LOGIN LOGIC
+      await page.goto('https://saesrpg.uk/login/', { waitUntil: 'networkidle2' });
+      await page.type('input[name="auth"]', process.env.FORUM_USERNAME);
+      await page.type('input[name="password"]', process.env.FORUM_PASSWORD);
+
+      await Promise.all([
+        page.click('button[type="submit"]'),
+        page.waitForNavigation({ waitUntil: 'networkidle2' }),
+      ]);
+
+      // NAVIGATE TO ARCHIVE
       let currentUrl = startUrl;
-
       while (currentUrl) {
         await page.goto(currentUrl, { waitUntil: 'networkidle2' });
         const $ = cheerio.load(await page.content());
@@ -71,26 +77,22 @@ module.exports = {
           const $post = $(post);
           const postId = $post.attr('id');
           const postText = $post.find('.ipsType_richText').text().trim();
-
           if (!postText) return;
 
-          // Extract date
           const dateLineMatch = postText.match(/Date\s*:\s*(\d{1,2}\/\d{1,2}\/\d{2,4})/i);
           if (!dateLineMatch) return;
 
           const postDate = parseDateFromText(dateLineMatch[1]);
           if (!postDate || postDate.getMonth() !== monthIndex) return;
 
-          // Poster
           let poster = 'Unknown';
           const quotedata = $post.find('div.ipsComment_content').attr('data-quotedata');
           if (quotedata) {
             try {
               poster = JSON.parse(quotedata).username || 'Unknown';
-            } catch { /* Ignore parse error */ }
+            } catch {}
           }
 
-          // Detect type
           const imgSrc = $post.find('img').attr('data-src') || $post.find('img').attr('src') || '';
           const img = imgSrc.toLowerCase();
 
@@ -128,11 +130,10 @@ module.exports = {
         return message.reply(`No posts found for ${args[0]}.`);
       }
 
-      // Count by type
+      // Count types
       const counts = { Activity: 0, Event: 0, Roleplay: 0 };
       posts.forEach(p => counts[p.type]++);
 
-      // Chart config
       const chartConfig = {
         type: 'bar',
         data: {
@@ -165,7 +166,6 @@ module.exports = {
         },
       };
 
-      // Render and send chart
       const buffer = await chartCanvas.renderToBuffer(chartConfig);
       const fileName = `chart_${Date.now()}.png`;
       const filePath = path.join(__dirname, fileName);

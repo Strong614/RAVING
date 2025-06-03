@@ -102,7 +102,7 @@ client.on('messageCreate', async (message) => {
           ).join('\n');
 
           return new EmbedBuilder()
-            .setThumbnail('https://imgur.com/WLAHrWE')
+            .setThumbnail('https://i.imgur.com/WLAHrWE.png')
             .setColor('#A2C6CA')
             .setTitle('Online Players')
             .setDescription(description)
@@ -225,7 +225,7 @@ client.on('messageCreate', async (message) => {
       ).join('\n');
 
       const embed = new EmbedBuilder()
-        .setThumbnail('https://imgur.com/WLAHrWE')
+        .setThumbnail('https://i.imgur.com/WLAHrWE.png')
         .setColor('#A2C6CA')
         .setTitle(`Online Members in ${orgName}`)
         .setDescription(playersList)
@@ -244,7 +244,7 @@ client.on('messageCreate', async (message) => {
   if (command === 'help') {
     console.log('Help command triggered'); // Add this log
     const helpEmbed = new EmbedBuilder()
-        .setThumbnail('https://imgur.com/WLAHrWE')
+        .setThumbnail('https://i.imgur.com/WLAHrWE.png')
         .setColor('#A2C6CA')
         .setTitle('Bot Commands Help')
         .addFields(

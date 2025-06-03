@@ -116,7 +116,7 @@ module.exports = {
       const createEmbed = (pageIndex) => {
         const embed = new EmbedBuilder()
           .setTitle(`📈 ${player}'s Stats (Page ${pageIndex + 1}/${pages})`)
-          .setThumbnail('https://imgur.com/WLAHrWE')
+          .setThumbnail('https://i.imgur.com/WLAHrWE.png')
           .setColor('#A2C6CA')
           .setFooter({ text: 'Made by Lking Strong 👑' })
           .setTimestamp();
