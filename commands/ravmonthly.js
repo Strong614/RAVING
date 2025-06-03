@@ -15,11 +15,27 @@ const MONTHS = {
 };
 
 function parseDateFromText(dateStr) {
-  const match = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  // Match DD/MM/YY format, e.g. 13/04/25
+  const match = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
   if (!match) return null;
-  const [_, month, day, year] = match;
-  return new Date(`${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
+
+  const [_, day, month, yearShort] = match;
+
+  // Convert two-digit year to four-digit (assuming 2000+)
+  const year = '20' + yearShort;
+
+  // Build a Date string in ISO format YYYY-MM-DD for Date constructor
+  const isoDateStr = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+
+  const date = new Date(isoDateStr);
+
+  // Check if date is valid
+  if (isNaN(date.getTime())) return null;
+
+  return date;
 }
+
+console.log('Date string:', dateStr, 'Parsed date:', postDate?.toISOString());
 
 
 module.exports = {
