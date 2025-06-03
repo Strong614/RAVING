@@ -98,7 +98,7 @@ module.exports = {
           } catch (err) {
             console.warn(`Navigation to ${currentUrl} failed on attempt ${attempt}: ${err.message}`);
             if (attempt === maxRetries) throw err;
-            await new Promise(res => setTimeout(res, 500));
+            await new Promise(res => setTimeout(res, 50));
           }
         }
 
@@ -155,7 +155,7 @@ module.exports = {
         const next = $('li.ipsPagination_next a').attr('href');
         if (next && next !== currentUrl) {
           currentUrl = next;
-          await new Promise(res => setTimeout(res, 200));  // shorter delay between pages
+          await new Promise(res => setTimeout(res, 50));  // shorter delay between pages
         } else {
           currentUrl = null;
         }
