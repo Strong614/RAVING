@@ -1,10 +1,11 @@
 require('dotenv').config();
-const axios = require('axios');
+const { AttachmentBuilder } = require('discord.js');
 const cheerio = require('cheerio');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const fs = require('fs');
 const path = require('path');
 const chartjsPluginDatalabels = require('chartjs-plugin-datalabels');
+const puppeteer = require('puppeteer');
 
 const width = 800;
 const height = 600;
@@ -48,16 +49,35 @@ module.exports = {
     const posts = [];
 
     try {
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      });
+
+      const page = await browser.newPage();
+
+      // Set User-Agent (optional but recommended)
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36');
+
+      // Go to login page
+      await page.goto('https://saesrpg.uk/login/', { waitUntil: 'networkidle2' });
+
+      // Fill login form
+      await page.type('input[name="auth"]', process.env.FORUM_USERNAME);
+      await page.type('input[name="password"]', process.env.FORUM_PASSWORD);
+
+      // Submit and wait for navigation
+      await Promise.all([
+        page.click('button[type="submit"]'),
+        page.waitForNavigation({ waitUntil: 'networkidle2' }),
+      ]);
+
+      // Now logged in, start scraping pages
       let currentUrl = startUrl;
-
       while (currentUrl) {
-        const res = await axios.get(currentUrl, {
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
-          },
-        });
-
-        const $ = cheerio.load(res.data);
+        await page.goto(currentUrl, { waitUntil: 'networkidle2' });
+        const html = await page.content();
+        const $ = cheerio.load(html);
 
         $('article.ipsComment').each((_, post) => {
           const $post = $(post);
@@ -110,14 +130,17 @@ module.exports = {
         }
       }
 
+      await browser.close();
+
       if (!posts.length) {
         return message.reply(`No posts found for ${args[0]}.`);
       }
 
-      // Count types
+      // Count posts by type
       const counts = { Activity: 0, Event: 0, Roleplay: 0 };
       posts.forEach(p => counts[p.type]++);
 
+      // Generate chart config
       const chartConfig = {
         type: 'bar',
         data: {
@@ -130,10 +153,7 @@ module.exports = {
         },
         options: {
           plugins: {
-            title: {
-              display: true,
-              text: `Post Types in ${args[0]}`,
-            },
+            title: { display: true, text: `Post Types in ${args[0]}` },
             datalabels: {
               color: '#fff',
               anchor: 'end',
@@ -142,20 +162,19 @@ module.exports = {
             },
           },
           scales: {
-            y: {
-              beginAtZero: true,
-              ticks: { precision: 0 },
-            },
+            y: { beginAtZero: true, ticks: { precision: 0 } },
           },
         },
       };
 
+      // Render chart to buffer & save
       const buffer = await chartCanvas.renderToBuffer(chartConfig);
       const fileName = `chart_${Date.now()}.png`;
       const filePath = path.join(__dirname, fileName);
       fs.writeFileSync(filePath, buffer);
 
-      const attachment = new (require('discord.js').AttachmentBuilder)(filePath);
+      // Send chart image as Discord attachment
+      const attachment = new AttachmentBuilder(filePath);
       await message.channel.send({
         content: `📊 RAV Media Archive Stats for **${args[0]}**\n\n` +
                  `🟦 Activities: ${counts.Activity}\n` +
@@ -169,5 +188,5 @@ module.exports = {
       console.error('Error in ravmonthly command:', error);
       return message.reply('An error occurred while generating the chart.');
     }
-  }
+  },
 };
