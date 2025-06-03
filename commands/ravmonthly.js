@@ -2,6 +2,7 @@ const { AttachmentBuilder } = require('discord.js');
 const cheerio = require('cheerio');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const fs = require('fs');
+const path = require('path');
 const chartjsPluginDatalabels = require('chartjs-plugin-datalabels');
 const puppeteer = require('puppeteer');
 
@@ -15,34 +16,28 @@ const MONTHS = {
 };
 
 function parseDateFromText(dateStr) {
-  // Match DD/MM/YYYY or DD/MM/YY
+  // Matches date format: DD/MM/YYYY or DD/MM/YY
   const match = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
   if (!match) return null;
 
-  const [_, day, month, yearPart] = match;
+  let [_, day, month, yearPart] = match;
 
+  // Normalize year
   let year;
   if (yearPart.length === 2) {
-    // Two-digit year, assume 2000+
     year = '20' + yearPart;
   } else if (yearPart.length === 4) {
     year = yearPart;
   } else {
-    return null; // invalid year length
+    return null;
   }
 
-  // Construct ISO date string YYYY-MM-DD
+  // Construct ISO string for Date parsing: YYYY-MM-DD
   const isoDateStr = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
-
   const date = new Date(isoDateStr);
   if (isNaN(date.getTime())) return null;
-
   return date;
 }
-
-
-console.log('Date string:', dateStr, 'Parsed date:', postDate?.toISOString());
-
 
 module.exports = {
   name: 'ravmonthly',
@@ -81,44 +76,52 @@ module.exports = {
           const $post = $(post);
           const postId = $post.attr('id');
           const postText = $post.find('.ipsType_richText').text().trim();
-          const quotedata = $post.find('div.ipsComment_content').attr('data-quotedata');
-          const bannerImg = $post.find('img').attr('data-src') || $post.find('img').attr('src') || '';
-          const postUrl = postId ? `${startUrl}#findComment-${postId}` : 'No Link';
 
+          // Extract quotedata for username
           let poster = 'Unknown';
+          const quotedata = $post.find('div.ipsComment_content').attr('data-quotedata');
           try {
-            if (quotedata) poster = JSON.parse(quotedata).username;
-          } catch (e) {
-            // ignore JSON parse errors
+            if (quotedata) poster = JSON.parse(quotedata).username || 'Unknown';
+          } catch {
+            // ignore parse errors
           }
 
-          let dateStr = postText.match(/Date\s*:\s*(.+)/i)?.[1]?.trim() || null;
-          const postDate = dateStr ? parseDateFromText(dateStr) : null;
-          if (!postDate || isNaN(postDate.getTime()) || postDate.getMonth() !== monthIndex) return;
+          // Extract date from postText lines (match "Date: DD/MM/YYYY")
+          const dateLineMatch = postText.match(/Date\s*:\s*(\d{1,2}\/\d{1,2}\/\d{2,4})/i);
+          if (!dateLineMatch) return; // no date, skip
+          const dateStr = dateLineMatch[1].trim();
+          const postDate = parseDateFromText(dateStr);
+          if (!postDate || postDate.getMonth() !== monthIndex) return;
+
+          // Determine post type based on image or text content
+          const bannerImg = $post.find('img').attr('data-src') || $post.find('img').attr('src') || '';
+          const img = bannerImg.toLowerCase();
 
           let type = null;
-          const img = bannerImg.toLowerCase();
           if (img.includes('smkyyxm')) type = 'Activity';
           else if (img.includes('bkmozrh')) type = 'Event';
           else if (img.includes('flhet6c')) type = 'Roleplay';
           else {
+            // fallback by text
             if (postText.toLowerCase().includes('event')) type = 'Event';
             else if (postText.toLowerCase().includes('roleplay')) type = 'Roleplay';
             else type = 'Activity';
           }
 
-          const key = postId || postUrl;
+          const postUrl = postId ? `${startUrl}#findComment-${postId}` : null;
+          const key = postId || postUrl || postText.slice(0, 30); // fallback key
           if (!seenPosts.has(key)) {
             seenPosts.add(key);
-            posts.push({ type, date: postDate, poster, url: postUrl });
+            posts.push({ type, date: postDate, poster, url: postUrl || 'No Link' });
           }
         });
 
+        // Find next page link
         const next = $('li.ipsPagination_next a').attr('href');
         if (next && next !== currentUrl) {
           currentUrl = next;
-          // Delay to prevent hammering server
-          await new Promise(res => setTimeout(res, 1000));
+          // Friendly delay to avoid hammering server
+          await new Promise(res => setTimeout(res, 1500));
         } else {
           currentUrl = null;
         }
@@ -128,9 +131,11 @@ module.exports = {
 
       if (!posts.length) return message.reply(`No posts found for ${args[0]}.`);
 
+      // Count posts by type
       const counts = { Activity: 0, Event: 0, Roleplay: 0 };
       for (const p of posts) counts[p.type]++;
 
+      // Chart configuration
       const config = {
         type: 'bar',
         data: {
@@ -160,11 +165,16 @@ module.exports = {
         }
       };
 
+      // Render chart buffer
       const buffer = await chartCanvas.renderToBuffer(config);
-      const filePath = './chart.png';
+
+      // Use unique filename to avoid concurrency issues
+      const fileName = `chart_${Date.now()}.png`;
+      const filePath = path.join(__dirname, fileName);
       fs.writeFileSync(filePath, buffer);
 
       const attachment = new AttachmentBuilder(filePath);
+
       await message.channel.send({
         content: `📊 RAV Media Archive Stats for **${args[0]}**\n\n` +
                  `Activities: ${counts.Activity}\n` +
@@ -173,11 +183,11 @@ module.exports = {
         files: [attachment]
       });
 
-      // Clean up image file after sending (optional)
+      // Clean up temp image
       fs.unlinkSync(filePath);
 
     } catch (error) {
-      console.error(error);
+      console.error('Error in ravmonthly command:', error);
       message.reply('An error occurred while generating the chart.');
     }
   }
