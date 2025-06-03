@@ -15,11 +15,12 @@ const MONTHS = {
 };
 
 function parseDateFromText(dateStr) {
-  const match = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/); // DD/MM/YYYY
+  const match = dateStr.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
   if (!match) return null;
-  const [_, day, month, year] = match;
-  return new Date(`${year}-${month}-${day}`); // convert to YYYY-MM-DD
+  const [_, month, day, year] = match;
+  return new Date(`${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
 }
+
 
 module.exports = {
   name: 'ravmonthly',
