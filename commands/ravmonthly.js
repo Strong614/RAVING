@@ -1,11 +1,10 @@
 require('dotenv').config();
-const { AttachmentBuilder } = require('discord.js');
+const axios = require('axios');
 const cheerio = require('cheerio');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const fs = require('fs');
 const path = require('path');
 const chartjsPluginDatalabels = require('chartjs-plugin-datalabels');
-const puppeteer = require('puppeteer');
 
 const width = 800;
 const height = 600;
@@ -49,29 +48,16 @@ module.exports = {
     const posts = [];
 
     try {
-      const browser = await puppeteer.launch({
-        headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox'],
-      });
-
-      const page = await browser.newPage();
-      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36');
-
-      // LOGIN LOGIC
-      await page.goto('https://saesrpg.uk/login/', { waitUntil: 'networkidle2' });
-      await page.type('input[name="auth"]', process.env.FORUM_USERNAME);
-      await page.type('input[name="password"]', process.env.FORUM_PASSWORD);
-
-      await Promise.all([
-        page.click('button[type="submit"]'),
-        page.waitForNavigation({ waitUntil: 'networkidle2' }),
-      ]);
-
-      // NAVIGATE TO ARCHIVE
       let currentUrl = startUrl;
+
       while (currentUrl) {
-        await page.goto(currentUrl, { waitUntil: 'networkidle2' });
-        const $ = cheerio.load(await page.content());
+        const res = await axios.get(currentUrl, {
+          headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+          },
+        });
+
+        const $ = cheerio.load(res.data);
 
         $('article.ipsComment').each((_, post) => {
           const $post = $(post);
@@ -118,13 +104,11 @@ module.exports = {
         const next = $('li.ipsPagination_next a').attr('href');
         if (next && next !== currentUrl) {
           currentUrl = next;
-          await new Promise(res => setTimeout(res, 1500));
+          await new Promise(res => setTimeout(res, 1500)); // polite delay
         } else {
           currentUrl = null;
         }
       }
-
-      await browser.close();
 
       if (!posts.length) {
         return message.reply(`No posts found for ${args[0]}.`);
@@ -171,7 +155,7 @@ module.exports = {
       const filePath = path.join(__dirname, fileName);
       fs.writeFileSync(filePath, buffer);
 
-      const attachment = new AttachmentBuilder(filePath);
+      const attachment = new (require('discord.js').AttachmentBuilder)(filePath);
       await message.channel.send({
         content: `📊 RAV Media Archive Stats for **${args[0]}**\n\n` +
                  `🟦 Activities: ${counts.Activity}\n` +
