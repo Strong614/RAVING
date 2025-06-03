@@ -92,13 +92,13 @@ module.exports = {
         let success = false;
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
           try {
-            await page.goto(currentUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
+            await page.goto(currentUrl, { waitUntil: 'domcontentloaded', timeout: 0 });
             success = true;
             break;
           } catch (err) {
             console.warn(`Navigation to ${currentUrl} failed on attempt ${attempt}: ${err.message}`);
             if (attempt === maxRetries) throw err;
-            await new Promise(res => setTimeout(res, 3000));
+            await new Promise(res => setTimeout(res, 500));
           }
         }
 
