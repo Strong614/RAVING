@@ -48,15 +48,27 @@ module.exports = {
       });
 
       const page = await browser.newPage();
+
+      // Block images, styles, fonts to speed up loading
+      await page.setRequestInterception(true);
+      page.on('request', req => {
+        const resourceType = req.resourceType();
+        if (['image', 'stylesheet', 'font'].includes(resourceType)) {
+          req.abort();
+        } else {
+          req.continue();
+        }
+      });
+
       await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36');
 
       // Login
-      await page.goto('https://saesrpg.uk/login/', { waitUntil: 'networkidle2' });
+      await page.goto('https://saesrpg.uk/login/', { waitUntil: 'domcontentloaded' });
       await page.type('input[name="auth"]', process.env.FORUM_USERNAME);
       await page.type('input[name="password"]', process.env.FORUM_PASSWORD);
       await Promise.all([
         page.click('button[type="submit"]'),
-        page.waitForNavigation({ waitUntil: 'networkidle2' }),
+        page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
       ]);
 
       // Login check
@@ -80,7 +92,7 @@ module.exports = {
         let success = false;
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
           try {
-            await page.goto(currentUrl, { waitUntil: 'networkidle2', timeout: 30000 });
+            await page.goto(currentUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
             success = true;
             break;
           } catch (err) {
@@ -143,7 +155,7 @@ module.exports = {
         const next = $('li.ipsPagination_next a').attr('href');
         if (next && next !== currentUrl) {
           currentUrl = next;
-          await new Promise(res => setTimeout(res, 500));
+          await new Promise(res => setTimeout(res, 200));  // shorter delay between pages
         } else {
           currentUrl = null;
         }
