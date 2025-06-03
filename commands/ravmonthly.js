@@ -41,25 +41,22 @@ module.exports = {
       const browser = await puppeteer.launch({
         headless: true,
         args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        defaultViewport: null,
       });
 
       const page = await browser.newPage();
-
       await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/115 Safari/537.36');
 
       // Login
-      console.log('Navigating to login page...');
       await page.goto('https://saesrpg.uk/login/', { waitUntil: 'networkidle2' });
-
       await page.type('input[name="auth"]', process.env.FORUM_USERNAME);
       await page.type('input[name="password"]', process.env.FORUM_PASSWORD);
-
       await Promise.all([
         page.click('button[type="submit"]'),
         page.waitForNavigation({ waitUntil: 'networkidle2' }),
       ]);
 
-      console.log('Checking login success...');
+      // Login check
       if (await page.$('form#login_form')) {
         await browser.close();
         return message.reply('Login failed: Please check your username and password.');
@@ -68,84 +65,82 @@ module.exports = {
         await browser.close();
         return message.reply('Login failed: Could not detect login success on page.');
       }
-      console.log('Login successful.');
 
-      // Pagination scraping loop with max pages
       let currentUrl = startUrl;
       let pageCount = 0;
-      const maxPages = 50;
+      const maxRetries = 3;
 
-      while (currentUrl && pageCount < maxPages) {
+      while (currentUrl) {
         pageCount++;
         console.log(`Scraping page ${pageCount}: ${currentUrl}`);
 
-        try {
-          await page.goto(currentUrl, { waitUntil: 'networkidle2' });
-          const html = await page.content();
-          const $ = cheerio.load(html);
+        let success = false;
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+          try {
+            await page.goto(currentUrl, { waitUntil: 'networkidle2', timeout: 45000 });
+            success = true;
+            break; // exit retry loop on success
+          } catch (err) {
+            console.warn(`Navigation to ${currentUrl} failed on attempt ${attempt}: ${err.message}`);
+            if (attempt === maxRetries) throw err;
+            await new Promise(res => setTimeout(res, 3000)); // wait before retrying
+          }
+        }
 
-          const postsOnPage = $('article.ipsComment');
-          if (!postsOnPage.length) {
-            console.warn(`No posts found on page ${pageCount}: ${currentUrl}`);
+        if (!success) break;
+
+        const html = await page.content();
+        const $ = cheerio.load(html);
+
+        $('article.ipsComment').each((_, post) => {
+          const $post = $(post);
+          const postId = $post.attr('id');
+          const postText = $post.find('.ipsType_richText').text().trim();
+          if (!postText) return;
+
+          const dateLineMatch = postText.match(/Date\s*:\s*(\d{1,2}\/\d{1,2}\/\d{2,4})/i);
+          if (!dateLineMatch) return;
+
+          const postDate = parseDateFromText(dateLineMatch[1]);
+          if (!postDate || postDate.getMonth() !== monthIndex) return;
+
+          let poster = 'Unknown';
+          const quotedata = $post.find('div.ipsComment_content').attr('data-quotedata');
+          if (quotedata) {
+            try {
+              poster = JSON.parse(quotedata).username || 'Unknown';
+            } catch {}
           }
 
-          postsOnPage.each((_, post) => {
-            const $post = $(post);
-            const postId = $post.attr('id');
-            const postText = $post.find('.ipsType_richText').text().trim();
-            if (!postText) return;
+          const imgSrc = $post.find('img').attr('data-src') || $post.find('img').attr('src') || '';
+          const img = imgSrc.toLowerCase();
 
-            const dateLineMatch = postText.match(/Date\s*:\s*(\d{1,2}\/\d{1,2}\/\d{2,4})/i);
-            if (!dateLineMatch) return;
-
-            const postDate = parseDateFromText(dateLineMatch[1]);
-            if (!postDate || postDate.getMonth() !== monthIndex) return;
-
-            let poster = 'Unknown';
-            const quotedata = $post.find('div.ipsComment_content').attr('data-quotedata');
-            if (quotedata) {
-              try {
-                poster = JSON.parse(quotedata).username || 'Unknown';
-              } catch (err) {
-                console.warn('Failed to parse poster username JSON:', err);
-              }
-            }
-
-            const imgSrc = $post.find('img').attr('data-src') || $post.find('img').attr('src') || '';
-            const img = imgSrc.toLowerCase();
-
-            let type = 'Activity';
-            if (img.includes('smkyyxm')) type = 'Activity';
-            else if (img.includes('bkmozrh')) type = 'Event';
-            else if (img.includes('flhet6c')) type = 'Roleplay';
-            else {
-              const text = postText.toLowerCase();
-              if (text.includes('event')) type = 'Event';
-              else if (text.includes('roleplay')) type = 'Roleplay';
-            }
-
-            const postUrl = postId ? `${startUrl}#findComment-${postId}` : 'No Link';
-            const key = postId || postUrl || postText.slice(0, 30);
-
-            if (!seenPosts.has(key)) {
-              seenPosts.add(key);
-              posts.push({ type, date: postDate, poster, url: postUrl });
-            }
-          });
-
-          // Find next page URL
-          const next = $('li.ipsPagination_next a').attr('href');
-          if (next && next !== currentUrl) {
-            currentUrl = next;
-            // Random polite delay 1.5-3 seconds
-            const delay = 1500 + Math.floor(Math.random() * 1500);
-            await new Promise(res => setTimeout(res, delay));
-          } else {
-            currentUrl = null;
+          let type = 'Activity';
+          if (img.includes('smkyyxm')) type = 'Activity';
+          else if (img.includes('bkmozrh')) type = 'Event';
+          else if (img.includes('flhet6c')) type = 'Roleplay';
+          else {
+            const text = postText.toLowerCase();
+            if (text.includes('event')) type = 'Event';
+            else if (text.includes('roleplay')) type = 'Roleplay';
           }
-        } catch (pageErr) {
-          console.error(`Error scraping page ${pageCount} (${currentUrl}):`, pageErr);
-          break; // optionally continue to next page if you want
+
+          const postUrl = postId ? `${startUrl}#findComment-${postId}` : 'No Link';
+          const key = postId || postUrl || postText.slice(0, 30);
+
+          if (!seenPosts.has(key)) {
+            seenPosts.add(key);
+            posts.push({ type, date: postDate, poster, url: postUrl });
+          }
+        });
+
+        // Find next page URL
+        const next = $('li.ipsPagination_next a').attr('href');
+        if (next && next !== currentUrl) {
+          currentUrl = next;
+          await new Promise(res => setTimeout(res, 2000)); // polite delay before next page
+        } else {
+          currentUrl = null;
         }
       }
 
@@ -164,7 +159,10 @@ module.exports = {
         `📊 RAV Media Archive Stats for **${args[0]}**\n\n` +
         `🟦 Activities: ${counts.Activity}\n` +
         `🟧 Events: ${counts.Event}\n` +
-        `🟥 Roleplays: ${counts.Roleplay}`
+        `🟥 Roleplays: ${counts.Roleplay}\n\n` +
+        `Total Activities: ${counts.Activity}\n` +
+        `Total Events: ${counts.Event}\n` +
+        `Total Roleplays: ${counts.Roleplay}`
       );
     } catch (error) {
       console.error('Error in ravmonthly command:', error);
