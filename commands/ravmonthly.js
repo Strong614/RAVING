@@ -1,13 +1,13 @@
 const { AttachmentBuilder } = require('discord.js');
-const axios = require('axios');
 const cheerio = require('cheerio');
 const { ChartJSNodeCanvas } = require('chartjs-node-canvas');
 const fs = require('fs');
-const chartjsPluginDatalabels = require('chartjs-plugin-datalabels');  // Import the data labels plugin
+const chartjsPluginDatalabels = require('chartjs-plugin-datalabels');
+const puppeteer = require('puppeteer');
 
 const width = 800;
 const height = 600;
-const chartCanvas = new ChartJSNodeCanvas({ width, height, plugins: [chartjsPluginDatalabels] });  // Register the plugin
+const chartCanvas = new ChartJSNodeCanvas({ width, height, plugins: [chartjsPluginDatalabels] });
 
 const MONTHS = {
   january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
@@ -32,19 +32,27 @@ module.exports = {
     if (monthIndex === undefined) return message.reply('Invalid month. Please use a full name like `February`, not `Feb`.');
 
     const startUrl = 'https://saesrpg.uk/forums/topic/42510-rapid-assault-vanguard-media-archive/';
-    const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-    'Accept-Language': 'en-US,en;q=0.5',
-    'Referer': 'https://saesrpg.uk/forums/',
-    'Connection': 'keep-alive', };
+
     const seenPosts = new Set();
     const posts = [];
     let currentUrl = startUrl;
 
     try {
+      // Launch Puppeteer browser
+      const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      });
+
+      const page = await browser.newPage();
+      await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
+      await page.setViewport({ width: 1280, height: 800 });
+
       while (currentUrl) {
-        const response = await axios.get(currentUrl, { headers });
-        const $ = cheerio.load(response.data);
+        await page.goto(currentUrl, { waitUntil: 'networkidle2' });
+        const html = await page.content();
+
+        const $ = cheerio.load(html);
 
         $('article.ipsComment').each((_, post) => {
           const $post = $(post);
@@ -54,7 +62,12 @@ module.exports = {
           const bannerImg = $post.find('img').attr('data-src') || $post.find('img').attr('src') || '';
           const postUrl = postId ? `${startUrl}#findComment-${postId}` : 'No Link';
 
-          const poster = quotedata ? JSON.parse(quotedata).username : 'Unknown';
+          let poster = 'Unknown';
+          try {
+            if (quotedata) poster = JSON.parse(quotedata).username;
+          } catch (e) {
+            // ignore JSON parse errors
+          }
 
           let dateStr = postText.match(/Date\s*:\s*(.+)/i)?.[1]?.trim() || null;
           const postDate = dateStr ? parseDateFromText(dateStr) : null;
@@ -81,9 +94,14 @@ module.exports = {
         const next = $('li.ipsPagination_next a').attr('href');
         if (next && next !== currentUrl) {
           currentUrl = next;
+          // Delay to prevent hammering server
           await new Promise(res => setTimeout(res, 1000));
-        } else break;
+        } else {
+          currentUrl = null;
+        }
       }
+
+      await browser.close();
 
       if (!posts.length) return message.reply(`No posts found for ${args[0]}.`);
 
@@ -102,12 +120,18 @@ module.exports = {
         },
         options: {
           plugins: {
-            title: { display: true, text: `Post Types in ${args[0]}` }
+            title: { display: true, text: `Post Types in ${args[0]}` },
+            datalabels: {
+              color: 'white',
+              anchor: 'end',
+              align: 'start',
+              font: { weight: 'bold' }
+            }
           },
-          scales: { 
-            y: { 
-              beginAtZero: true, 
-              ticks: { precision: 0 } 
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { precision: 0 }
             }
           }
         }
@@ -125,6 +149,9 @@ module.exports = {
                  `Roleplays: ${counts.Roleplay}`,
         files: [attachment]
       });
+
+      // Clean up image file after sending (optional)
+      fs.unlinkSync(filePath);
 
     } catch (error) {
       console.error(error);
