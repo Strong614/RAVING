@@ -10,7 +10,7 @@ module.exports = {
     const textToLog = args.join(' ');
 
     const logEmbed = new EmbedBuilder()
-        .setThumbnail('https://i.imgur.com/WLAHrWE.png')
+        .setThumbnail('https://imgur.com/WLAHrWE')
         .setColor('#A2C6CA')
       .setTitle('Logged Message')
       .setDescription(textToLog)

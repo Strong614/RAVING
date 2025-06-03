@@ -116,7 +116,7 @@ module.exports = {
       const createEmbed = (pageIndex) => {
         const embed = new EmbedBuilder()
           .setTitle(`📈 ${player}'s Stats (Page ${pageIndex + 1}/${pages})`)
-          .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
+          .setThumbnail('https://imgur.com/WLAHrWE')
           .setColor('#A2C6CA')
           .setFooter({ text: 'Made by Lking Strong 👑' })
           .setTimestamp();

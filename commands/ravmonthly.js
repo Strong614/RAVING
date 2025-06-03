@@ -32,7 +32,11 @@ module.exports = {
     if (monthIndex === undefined) return message.reply('Invalid month. Please use a full name like `February`, not `Feb`.');
 
     const startUrl = 'https://saesrpg.uk/forums/topic/42510-rapid-assault-vanguard-media-archive/';
-    const headers = { 'User-Agent': 'Mozilla/5.0' };
+    const headers = { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Referer': 'https://saesrpg.uk/forums/',
+    'Connection': 'keep-alive', };
     const seenPosts = new Set();
     const posts = [];
     let currentUrl = startUrl;
