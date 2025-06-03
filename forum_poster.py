@@ -11,7 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager  # ✅ Added
-
+from selenium.webdriver.chrome.service import Service
 
 # Fetching username and password from environment variables
 FORUM_USERNAME = os.environ["FORUM_USERNAME"]
@@ -27,7 +27,8 @@ chrome_options.add_argument("--no-sandbox")  # Disable sandboxing in Docker
 chrome_options.add_argument("--disable-dev-shm-usage")  # Overcome potential issues with shared memory in Docker
 
 # ✅ Use webdriver-manager to auto-install compatible ChromeDriver
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=chrome_options)
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=chrome_options)
 
 
 # Example function for logging in
