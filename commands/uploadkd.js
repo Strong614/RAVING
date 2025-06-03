@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const fetch = require('node-fetch');
 
-let uploadKDActive = false; // Track the state of the uploadKD command
+let uploadKDActive = false;
 
 module.exports = {
   data: {
@@ -13,171 +13,131 @@ module.exports = {
       return message.reply("startkd command is already active. Please input player names or use `!stopkd` to deactivate.");
     }
 
-    uploadKDActive = true; // Activate the command
+    uploadKDActive = true;
 
-    message.reply('Upload console.log file to get your K/D');
+    await message.reply('Please upload the `console.log` file within 30 seconds to get your K/D ratio.');
 
-    console.log('Waiting for file upload...');
+    try {
+      const filter = (m) => m.author.id === message.author.id && m.attachments.size > 0;
+      const collected = await message.channel.awaitMessages({ filter, max: 1, time: 30000, errors: ['time'] });
 
-    // Wait for the file to be uploaded
-    const filter = (m) => m.author.id === message.author.id && m.attachments.size > 0;
-    const collected = await message.channel.awaitMessages({ filter, max: 1, time: 30000, errors: ['time'] });
-
-    if (collected.size > 0) {
       const file = collected.first().attachments.first();
       const fileUrl = file.url;
 
       console.log(`File uploaded: ${fileUrl}`);
 
-      // Fetch the content of the uploaded file from the URL
       const logContent = await fetchLogContent(fileUrl);
 
-      if (logContent) {
-        message.reply('File uploaded successfully. Parsing log...');
-        console.log('Log file fetched successfully. Parsing log...');
+      if (!logContent) {
+        uploadKDActive = false;
+        return message.reply('Failed to fetch or read the log file.');
+      }
 
-        // Parse the log file and calculate kills/deaths
-        const stats = parseLog(logContent);
+      await message.reply('File uploaded successfully. Parsing log...');
 
-        // Start listening for player name inputs
-        message.reply('Log parsing completed. Enter a player name to track their K/D. Type `!stopkd` to stop.');
+      const stats = parseLog(logContent);
 
-        // Create a filter to listen for player names or the stop command
-        const playerFilter = (m) => m.author.id === message.author.id;
-        const stopFilter = (m) => m.content.toLowerCase() === '!stopkd' && m.author.id === message.author.id;
+      await message.reply('Log parsing completed. Enter a player name to track their K/D. Type `!stopkd` to stop.');
 
-        // Continue processing player names until the stop command is triggered
-        while (uploadKDActive) {
-          try {
-            const playerMessage = await message.channel.awaitMessages({ filter: playerFilter, max: 1, time: 60000, errors: ['time'] });
-            const playerName = playerMessage.first().content;
+      const playerFilter = (m) => m.author.id === message.author.id;
 
-            if (playerName.toLowerCase() === '!stopkd') {
-              uploadKDActive = false;
-              message.reply('The `!startkd` command has been deactivated.');
-              break;
-            }
+      while (uploadKDActive) {
+        try {
+          const playerMessages = await message.channel.awaitMessages({
+            filter: playerFilter,
+            max: 1,
+            time: 60000,
+            errors: ['time'],
+          });
 
-            console.log(`Player name entered: ${playerName}`);
+          const playerName = playerMessages.first().content.trim();
 
-            // Check if the player name exists in stats and get the stats
-            if (stats[playerName]) {
-              const playerStats = stats[playerName];
-              console.log(`Player found: ${playerName}`);
-              console.log(`Kills: ${playerStats.kills}, Deaths: ${playerStats.deaths}`);
-
-              const kdRatio = (playerStats.deaths === 0) ? '∞' : (playerStats.kills / playerStats.deaths).toFixed(2);
-
-              // Create an embed with the player stats
-              const embed = new EmbedBuilder()
-                .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
-                .setColor('#A2C6CA')
-                .setTitle(`Tracking Stats for ${playerName}`)
-                .addFields(
-                  { name: 'Kills', value: `${playerStats.kills}`, inline: true },
-                  { name: 'Deaths', value: `${playerStats.deaths}`, inline: true },
-                  { name: 'KD Ratio', value: `${kdRatio}`, inline: true }
-                );
-
-              // Add weapon kills to the embed
-              for (const [weapon, count] of Object.entries(playerStats.weapons)) {
-                embed.addFields({ name: `${weapon} Kills`, value: `${count}`, inline: true });
-              }
-
-              embed.setFooter({ text: 'Made by elking strong' });
-
-              // Send the embed as a reply
-              message.reply({ embeds: [embed] });
-            } else {
-              console.log(`No stats found for player: ${playerName}`);
-              message.reply(`No stats found for player: ${playerName}`);
-            }
-          } catch (error) {
-            // If time out happens, continue checking if user wants to stop or provide input
-            console.log('No player name provided within the time limit.');
+          if (playerName.toLowerCase() === '!stopkd') {
+            uploadKDActive = false;
+            return message.reply('The `!startkd` command has been deactivated.');
           }
+
+          if (stats[playerName]) {
+            const playerStats = stats[playerName];
+            const kdRatio = playerStats.deaths === 0 ? '∞' : (playerStats.kills / playerStats.deaths).toFixed(2);
+
+            const embed = new EmbedBuilder()
+              .setThumbnail('https://i.imgur.com/WLAHrWE.png')
+              .setColor('#A2C6CA')
+              .setTitle(`Tracking Stats for ${playerName}`)
+              .addFields(
+                { name: 'Kills', value: `${playerStats.kills}`, inline: true },
+                { name: 'Deaths', value: `${playerStats.deaths}`, inline: true },
+                { name: 'KD Ratio', value: `${kdRatio}`, inline: true }
+              );
+
+            for (const [weapon, count] of Object.entries(playerStats.weapons)) {
+              embed.addFields({ name: `${weapon} Kills`, value: `${count}`, inline: true });
+            }
+
+            embed.setFooter({ text: 'Made by elking strong' });
+
+            await message.channel.send({ embeds: [embed] });
+          } else {
+            await message.channel.send(`No stats found for player: ${playerName}`);
+          }
+        } catch (err) {
+          // Timeout waiting for player name, continue waiting or allow stop command
+          await message.channel.send('No player name input received in 60 seconds. Type a player name or `!stopkd` to exit.');
         }
       }
-    } else {
-      console.log('No file uploaded or timed out.');
-      message.reply('No file uploaded or timed out.');
-      uploadKDActive = false; // Deactivate if the file upload fails
+    } catch (err) {
+      console.log('No file uploaded or timed out.', err);
+      await message.reply('No file uploaded or timed out.');
+      uploadKDActive = false;
     }
   },
 };
 
-// Helper function to fetch the log content from the URL
 async function fetchLogContent(url) {
   try {
     console.log(`Fetching file content from: ${url}`);
-    // Use node-fetch to get the file content from the Discord file URL
     const response = await fetch(url);
-    const fileBuffer = await response.buffer();
+    if (!response.ok) {
+      console.error('Failed to fetch file:', response.status);
+      return null;
+    }
+    const buffer = await response.buffer();
     console.log('File content fetched successfully');
-    return fileBuffer.toString(); // Convert the buffer into a string (text file)
+    return buffer.toString('utf-8');
   } catch (error) {
     console.error('Error fetching file content:', error);
     return null;
   }
 }
 
-
-// Main log parsing function
 function parseLog(logContent) {
   const stats = {};
   const lines = logContent.split('\n');
+  console.log(`Parsing log content with ${lines.length} lines.`);
 
-  console.log('Parsing log content...');
-  console.log(`Total lines to process: ${lines.length}`);
+  // Pattern for lines like: "Player1 killed Player2. (WeaponName)"
+  const killRegex = /\*?\s?([^\s]+)\s+killed\s+([^\s]+)\.\s+\(([^)]+)\)/;
 
-  // Regex pattern to extract player names and weapon type from kill lines
-  const killRegex = /\*?\s([^\s]+)\s+killed\s+([^\s]+)\.\s\(([^)]+)\)/g;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const match = killRegex.exec(line);
+    if (match) {
+      const killer = match[1].trim();
+      const victim = match[2].trim();
+      const weapon = match[3].trim();
 
-  lines.forEach((line, index) => {
-    console.log(`Processing line ${index + 1}: ${line}`); // Debugging line
-    let match;
-    while ((match = killRegex.exec(line)) !== null) { // Use `exec` for multiple matches
-      const player1Name = match[1].trim(); // Player who killed, trim spaces
-      const player2Name = match[2].trim(); // Player who was killed, trim spaces
-      const weapon = match[3].trim(); // Weapon used in the kill
+      if (!stats[killer]) stats[killer] = { kills: 0, deaths: 0, weapons: {} };
+      if (!stats[victim]) stats[victim] = { kills: 0, deaths: 0, weapons: {} };
 
-      console.log(`Match found - Player 1: ${player1Name}, Player 2: ${player2Name}, Weapon: ${weapon}`);
+      stats[killer].kills += 1;
+      stats[victim].deaths += 1;
 
-      // Initialize stats if player not present
-      if (!stats[player1Name]) stats[player1Name] = { kills: 0, deaths: 0, weapons: {} };
-      if (!stats[player2Name]) stats[player2Name] = { kills: 0, deaths: 0, weapons: {} };
-
-      // Increment kills for the player who killed, and deaths for the player who was killed
-      stats[player1Name].kills += 1;
-      stats[player2Name].deaths += 1;
-
-      // Track weapon kills for player 1
-      if (!stats[player1Name].weapons[weapon]) {
-        stats[player1Name].weapons[weapon] = 0;
-      }
-      stats[player1Name].weapons[weapon] += 1;
-
-      console.log(`Updated stats for ${player1Name}: Kills = ${stats[player1Name].kills}`);
-      console.log(`Updated stats for ${player2Name}: Deaths = ${stats[player2Name].deaths}`);
+      if (!stats[killer].weapons[weapon]) stats[killer].weapons[weapon] = 0;
+      stats[killer].weapons[weapon] += 1;
     }
-  });
-
-  // After processing, debug print the stats object to verify
-  console.log("Final stats:", stats);
-  return stats;
-}
-
-// Function to check if a player exists in the stats
-function checkPlayerStats(playerName, logContent) {
-  const stats = parseLog(logContent); // Assuming logContent is your log input
-  if (stats[playerName]) {
-    console.log(`Stats for ${playerName}:`, stats[playerName]);
-  } else {
-    console.log(`No stats found for player: ${playerName}`);
   }
 
-
-
-  console.log('Log parsing completed.');
+  console.log('Log parsing complete.');
   return stats;
 }

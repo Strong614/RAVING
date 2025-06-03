@@ -10,7 +10,7 @@ module.exports = {
     const textToLog = args.join(' ');
 
     const logEmbed = new EmbedBuilder()
-        .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
+        .setThumbnail('https://i.imgur.com/WLAHrWE.png')
         .setColor('#A2C6CA')
       .setTitle('Logged Message')
       .setDescription(textToLog)

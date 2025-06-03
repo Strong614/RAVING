@@ -108,7 +108,7 @@ module.exports = {
       const createEmbed = (pageIndex) => {
         const posts = allPosts.slice(pageIndex * maxPostsPerPage, (pageIndex + 1) * maxPostsPerPage);
         const embed = new EmbedBuilder()
-          .setThumbnail('https://cdn.discordapp.com/attachments/1360930454428979263/1360941416414576740/RAV1.png')
+          .setThumbnail('https://i.imgur.com/WLAHrWE.png')
           .setTitle(`📘 RAV Archive Summary`)
           .setColor('#A2C6CA')
           .setDescription(`Total Posts: ${allPosts.length} | Page ${pageIndex + 1}${filterType ? ` | Type: ${filterType}` : ''}${posterFilter ? ` | Poster: ${posterFilter}` : ''}`)
