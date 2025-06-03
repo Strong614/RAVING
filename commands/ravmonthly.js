@@ -18,17 +18,20 @@ function parseDateFromText(dateStr) {
 
 module.exports = {
   name: 'ravmonthly',
-  description: 'Show monthly post counts by type for a specified month',
+  description: 'Show monthly post counts by type for a specified month or total counts with "total".',
 
   async execute(message, args) {
     if (!args.length) {
-      return message.reply('Please specify a month, e.g. `!ravmonthly March`.');
+      return message.reply('Please specify a month (e.g. `!ravmonthly March`) or `total` for all-time stats.');
     }
 
-    const inputMonth = args[0].toLowerCase();
-    const monthIndex = MONTHS[inputMonth];
-    if (monthIndex === undefined) {
-      return message.reply('Invalid month. Use full names like `March`, not `Mar`.');
+    const input = args[0].toLowerCase();
+
+    const monthIndex = MONTHS[input];
+    const showTotal = input === 'total';
+
+    if (!showTotal && monthIndex === undefined) {
+      return message.reply('Invalid input. Use full month names like `March`, or `total` for all-time stats.');
     }
 
     const startUrl = 'https://saesrpg.uk/forums/topic/42510-rapid-assault-vanguard-media-archive/';
@@ -77,13 +80,13 @@ module.exports = {
         let success = false;
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
           try {
-            await page.goto(currentUrl, { waitUntil: 'networkidle2', timeout: 45000 });
+            await page.goto(currentUrl, { waitUntil: 'networkidle2', timeout: 30000 });
             success = true;
-            break; // exit retry loop on success
+            break;
           } catch (err) {
             console.warn(`Navigation to ${currentUrl} failed on attempt ${attempt}: ${err.message}`);
             if (attempt === maxRetries) throw err;
-            await new Promise(res => setTimeout(res, 3000)); // wait before retrying
+            await new Promise(res => setTimeout(res, 3000));
           }
         }
 
@@ -102,7 +105,9 @@ module.exports = {
           if (!dateLineMatch) return;
 
           const postDate = parseDateFromText(dateLineMatch[1]);
-          if (!postDate || postDate.getMonth() !== monthIndex) return;
+          if (!postDate) return; // skip posts without valid date
+
+          if (!showTotal && postDate.getMonth() !== monthIndex) return; // filter by month only if NOT total
 
           let poster = 'Unknown';
           const quotedata = $post.find('div.ipsComment_content').attr('data-quotedata');
@@ -138,7 +143,7 @@ module.exports = {
         const next = $('li.ipsPagination_next a').attr('href');
         if (next && next !== currentUrl) {
           currentUrl = next;
-          await new Promise(res => setTimeout(res, 2000)); // polite delay before next page
+          await new Promise(res => setTimeout(res, 500));
         } else {
           currentUrl = null;
         }
@@ -147,23 +152,28 @@ module.exports = {
       await browser.close();
 
       if (!posts.length) {
-        return message.reply(`No posts found for ${args[0]}.`);
+        return message.reply(showTotal ? 'No posts found.' : `No posts found for ${args[0]}.`);
       }
 
       // Count posts by type
       const counts = { Activity: 0, Event: 0, Roleplay: 0 };
       posts.forEach(p => counts[p.type]++);
 
-      // Send simple text output with counts
-      return message.channel.send(
-        `📊 RAV Media Archive Stats for **${args[0]}**\n\n` +
-        `🟦 Activities: ${counts.Activity}\n` +
-        `🟧 Events: ${counts.Event}\n` +
-        `🟥 Roleplays: ${counts.Roleplay}\n\n` +
-        `Total Activities: ${counts.Activity}\n` +
-        `Total Events: ${counts.Event}\n` +
-        `Total Roleplays: ${counts.Roleplay}`
-      );
+      if (showTotal) {
+        return message.channel.send(
+          `📊 RAV Media Archive Stats for **All Time**\n\n` +
+          `🟦 Total Activities: ${counts.Activity}\n` +
+          `🟧 Total Events: ${counts.Event}\n` +
+          `🟥 Total Roleplays: ${counts.Roleplay}`
+        );
+      } else {
+        return message.channel.send(
+          `📊 RAV Media Archive Stats for **${args[0]}**\n\n` +
+          `🟦 Activities: ${counts.Activity}\n` +
+          `🟧 Events: ${counts.Event}\n` +
+          `🟥 Roleplays: ${counts.Roleplay}`
+        );
+      }
     } catch (error) {
       console.error('Error in ravmonthly command:', error);
       return message.reply('An error occurred while generating the stats.');
