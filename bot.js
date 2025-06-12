@@ -349,6 +349,18 @@ client.on('messageCreate', async (message) => {
   }
 });
 
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === 'winou') {
+    const responses = ['Hawinouuuu!', 'Hani Hnééééééé'];
+    const reply = responses[Math.floor(Math.random() * responses.length)];
+    await interaction.reply(reply);
+  }
+});
+
+
+
 // -------- DO NOT TOUCH BELOW --------
 client.login(process.env.BOT_TOKEN);
 
